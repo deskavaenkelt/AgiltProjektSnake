@@ -76,6 +76,13 @@
 
         context.fillStyle = '#b58900';
         context.fillRect(candy.x, candy.y, GRID_SIZE, GRID_SIZE); // Paint the candy
+
+        /*
+        var snakeHead = new Image();
+        snakeHead.src = "img/snake_head.png";
+        context.drawImage(snakeHead, GRID_SIZE, GRID_SIZE);
+        */
+
     }
 
     window.onload = function() {
