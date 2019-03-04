@@ -2,8 +2,21 @@ body {
     background-color: lightgrey;
 }
 
+header{
+    font-family: Arial;
+    font-size: 20px;
+
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+#gamescore{
+    font-family: Arial;
+    font-size: 24px;
+}
 #canvas {
     display: block;
     margin: 0 auto;
-    border: red solid 1px;
+    border: black solid 2px;
 }

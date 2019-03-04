@@ -12,6 +12,8 @@
     var snake = [{x: SIZE / 2, y: SIZE / 2}]; // Snake starts in the center
     var candy = null;
     var end = false;
+    var score =0;
+
 
     function randomOffset() {
         return Math.floor(Math.random() * SIZE / GRID_SIZE) * GRID_SIZE;
@@ -38,7 +40,9 @@
         // Did we eat a candy? Detect if our head is in the same cell as the candy
         if (candy && candy.x === newHead.x && candy.y === newHead.y) {
             candy = null;
-            snakeLength += 20;
+            snakeLength += 10;
+            score += 10;
+            document.getElementById("gamescore").innerHTML= "Your score " + score;
         }
 
         context.fillStyle = '#002b36';
