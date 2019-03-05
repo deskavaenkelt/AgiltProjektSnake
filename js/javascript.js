@@ -12,7 +12,14 @@
     var snake = [{x: SIZE / 2, y: SIZE / 2}]; // Snake starts in the center
     var candy = null;
     var end = false;
-    var score =0;
+    var score = 0;
+
+    var snakeHead = new Image();
+    snakeHead.src = "img/snake_head.png";
+    var snakeBody = new Image();
+    snakeBody.src = "img/snake_body.png";
+    var snakeTail = new Image();
+    snakeTail.src = "img/snake_tail.png";
 
 
     function randomOffset() {
@@ -40,7 +47,7 @@
         // Did we eat a candy? Detect if our head is in the same cell as the candy
         if (candy && candy.x === newHead.x && candy.y === newHead.y) {
             candy = null;
-            snakeLength += 10;
+            snakeLength += 1;
             score += 10;
             document.getElementById("gamescore").innerHTML= "Your score " + score;
         }
@@ -80,13 +87,6 @@
 
         context.fillStyle = '#b58900';
         context.fillRect(candy.x, candy.y, GRID_SIZE, GRID_SIZE); // Paint the candy
-
-        /*
-        var snakeHead = new Image();
-        snakeHead.src = "img/snake_head.png";
-        context.drawImage(snakeHead, GRID_SIZE, GRID_SIZE);
-        */
-
     }
 
     window.onload = function() {
