@@ -1,7 +1,7 @@
 (function (window, document, drawModule, undefined) {
 
-var btn = document.getElementById('btn');
-btn.addEventListener("click", function(){ drawModule.init();});
+var btnStart = document.getElementById('btnStart');
+btnStart.addEventListener("click", function(){ drawModule.init();});
 
 	document.onkeydown = function(event) {
 
