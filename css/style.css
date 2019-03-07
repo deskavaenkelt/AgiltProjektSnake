@@ -1,16 +1,16 @@
 
 #home {
-      width: 750px;
-      height: 750px;
-      background-image: url('../img/snake.png');
-      background-size: auto 750px;
+    width: 750px;
+    height: 750px;
+    background-image: url('../img/snake.png');
+    background-size: auto 750px;
+}
 
     #home {
       width: 750px;
       height: 750px;
       background-image: url('../img/hasselsnokenhassepngtest.jpg');
       background-size: 750px 750px;
-
       background-repeat: no-repeat;
       background-position: center center;
       padding: 0;

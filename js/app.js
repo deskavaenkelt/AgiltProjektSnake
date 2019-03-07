@@ -3,6 +3,7 @@
 var btnStart = document.getElementById('btnStart');
 btnStart.addEventListener("click", function(){ drawModule.init();});
 
+
 	document.onkeydown = function(event) {
 
         keyCode = window.event.keyCode; 
