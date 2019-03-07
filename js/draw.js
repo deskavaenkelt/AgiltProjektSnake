@@ -42,6 +42,7 @@ var drawModule = (function () {
       ctx.strokeRect(0, 0, w, h);
       btnStart.setAttribute('disabled', true);
 
+
       var snakeX = snake[0].x;
       var snakeY = snake[0].y;
 
@@ -105,16 +106,17 @@ var drawModule = (function () {
       for(var i = 0; i < array.length; i++) {
         if(array[i].x === x && array[i].y === y)
         return true;
-      } 
+      }
       return false;
   }
 
-  var init = function(){
+    var init = function(){
       direction = 'down';
       drawSnake();
       createFood();
       gameloop = setInterval(paint, 80);
       score=0;
+
   }
 
 

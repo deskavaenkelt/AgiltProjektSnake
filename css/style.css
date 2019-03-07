@@ -11,10 +11,22 @@
       margin-left: auto;
       margin-right: auto;
     }
+    #diffList {
+        display: flex;
+    }
+    #themeList{
+        display: flex;
+    }
+    #startList {
+        display: flex;
+    }
 
     #menuList ul {
         list-style: none;
-        display: inline-block;
+        justify-content: center;
+        padding: 40px;
+        top: 300px;
+
     }
 
      button {
