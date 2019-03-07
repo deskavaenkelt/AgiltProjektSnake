@@ -1,14 +1,13 @@
 #home {
-      width: 350px;
-      height: 350px;
+      width: 750px;
+      height: 750px;
       background-image: url('../img/snake.png');
-      background-size: auto 350px;
+      background-size: auto 750px;
       background-repeat: no-repeat;
       background-color: lightblue;
       background-position: center center;
       padding: 0;
-      margin: 03;
-
+      margin: 0;
     }
     
     button {
