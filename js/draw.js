@@ -1,3 +1,9 @@
+var snakeHead = new Image();
+snakeHead.src = 'img/snake_head.png';
+var snakeBody = new Image();
+snakeBody.src = 'img/snake_body.png';
+var snakeTail = new Image();
+snakeTail.src = 'img/snake_tail.png';
 
 var drawModule = (function () { 
 
@@ -22,7 +28,7 @@ var drawModule = (function () {
   }
 
   var drawSnake = function() {
-      var length = 4;
+      var length = 3;
       snake = [];
       for (var i = length-1; i>=0; i--) {
           snake.push({x:i, y:0});
