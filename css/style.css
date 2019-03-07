@@ -1,11 +1,4 @@
 
-#home {
-    width: 750px;
-    height: 750px;
-    background-image: url('../img/snake.png');
-    background-size: auto 750px;
-}
-
     #home {
       width: 750px;
       height: 750px;
@@ -21,6 +14,7 @@
 
     #menuList ul {
         list-style: none;
+        display: block;
     }
 
      button {
