@@ -47,3 +47,11 @@
       text-align: center;
     }
 
+    #gamescore{
+        float: right;
+        text-align: left;
+        display: block;
+        width: 27%;
+        font-size: 20px;
+    }
+

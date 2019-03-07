@@ -5,7 +5,7 @@ snakeBody.src = 'img/snake_body.png';
 var snakeTail = new Image();
 snakeTail.src = 'img/snake_tail.png';
 
-var drawModule = (function () { 
+var drawModule = (function () {
 
   var bodySnake = function(x, y) {
         ctx.fillStyle = 'green';
@@ -21,18 +21,17 @@ var drawModule = (function () {
         ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
   }
 
-  var scoreText = function() {
-    var score_text = "Score: " + score;
-    ctx.fillStyle = 'blue';
-    ctx.fillText(score_text, 145, h-5);
-  }
-
   var drawSnake = function() {
       var length = 3;
       snake = [];
       for (var i = length-1; i>=0; i--) {
           snake.push({x:i, y:0});
       }  
+  }
+
+  var scoreText = function () {
+      var showScore = document.getElementById('gamescore');
+      showScore.innerHTML = "Poäng: " + score;
   }
     
   var paint = function(){
