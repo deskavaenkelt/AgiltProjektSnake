@@ -14,7 +14,7 @@
 
     #menuList ul {
         list-style: none;
-        display: block;
+        display: inline-block;
     }
 
      button {
