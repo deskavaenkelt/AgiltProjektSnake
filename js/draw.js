@@ -40,7 +40,6 @@ var drawModule = (function () {
       ctx.fillRect(0, 0, w, h);
       ctx.strokeStyle = 'black';
       ctx.strokeRect(0, 0, w, h);
-
       btnStart.setAttribute('disabled', true);
 
       var snakeX = snake[0].x;
