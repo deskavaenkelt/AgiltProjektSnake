@@ -87,6 +87,7 @@ var drawModule = (function () {
         scoreText();
   }
 
+  //Alternativ till highscorelistan, fungerar men plockar bara det högsta värdet
   var addHighScore = function () {
       highScore = Math.max(score, highScore);
       localStorage.setItem(localStorageName, highScore);
@@ -95,6 +96,7 @@ var drawModule = (function () {
 
   }
 
+  //Alternativ till highscorelistan som ska plocka de högsta fem värdena, fungerar ej i nuläget
   var addScore = function () {
       highScore.push(score);
 
