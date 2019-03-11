@@ -56,6 +56,9 @@ var drawModule = (function () {
 
       if (snakeX == -1 || snakeX == w/snakeSize || snakeY == -1 || snakeY == h/snakeSize || checkCollision(snakeX, snakeY, snake)) {
           //restart game
+          highScore = localStorage.getItem(localStorageName) == null ? 0 : localStorage.getItem(localStorageName);
+          //addHighScore();
+          addScore();
           btnStart.removeAttribute('disabled', true);
 
           ctx.clearRect(0,0,w,h);
@@ -83,6 +86,33 @@ var drawModule = (function () {
         pizza(food.x, food.y); 
         scoreText();
   }
+
+  var addHighScore = function () {
+      highScore = Math.max(score, highScore);
+      localStorage.setItem(localStorageName, highScore);
+      var showHighScore = document.getElementById('highscore');
+      showHighScore.innerHTML = 'Highscore: ' + highScore;
+
+  }
+
+  var addScore = function () {
+      highScore.push(score);
+
+      highScore.sort(function (a, b) {return a -b});
+      highScore.slice(0, 5);
+
+      localStorage.setItem('highscore', JSON.stringify(highScore));
+
+      var storedList = localStorage.getItem("highScore");
+      if(storedList){
+          highScore = JSON.parse(storedList);
+      }
+      var showHighScore = document.getElementById('highscore');
+      showHighScore.innerHTML = 'Highscore: ' + storedList;
+  }
+
+
+
 
   var createFood = function() {
       food = {
