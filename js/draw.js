@@ -44,7 +44,7 @@ let drawModule = (function () {
     };
 
     let scoreText = function () {
-        let showScore = document.getElementById('gamescore');
+        let showScore = document.getElementById('gameScore');
         showScore.innerHTML = "Poäng: " + score;
     };
 
@@ -111,9 +111,8 @@ let drawModule = (function () {
     };
 
 
-    //Highscorelistan, plockar  det högsta värdet
+    //AllTimeHigh, plockar  det högsta värdet
     var addHighScore = function () {
-
         highScore = Math.max(score, highScore);
         localStorage.setItem(localStorageName, highScore);
         var showHighScore = document.getElementById('allTimeHigh');
@@ -121,11 +120,12 @@ let drawModule = (function () {
         checkHighScore();
     };
 
+    //Highscorelistan med spelets fem högsta värden
     var checkHighScore = function () {
         highScoreList.push(score);
         highScoreList = highScoreList.sort((a, b) => b - a);
         let newList = highScoreList.slice(0, 5);
-        let showHighScoreList = document.getElementById('highscore');
+        let showHighScoreList = document.getElementById('highScore');
         showHighScoreList.innerHTML = 'Highscore: ' + newList;
     };
 
