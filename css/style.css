@@ -6,7 +6,6 @@
     #home {
       width: 750px;
       height: 750px;
-      background-image: url('../img/hasselsnokenhassepngtest.jpg');
       background-size: 750px 750px;
       background-repeat: no-repeat;
       background-position: center center;
@@ -86,8 +85,6 @@
         display: none;
     }
 
-
-
      button {
       text-align: center;
       justify-content: center;
@@ -100,6 +97,8 @@
       height: 60px;
       font-size: 12pt;
       width: 120px;
+
+
 
     }
     button:hover {
@@ -122,14 +121,14 @@
       text-align: center;
     }
 
-    #gamescore{
+    #gameScore{
         float: right;
         text-align: left;
         display: block;
         width: 27%;
         font-size: 20px;
     }
-    #highscore{
+    #highScore{
     }
     #allTimeHigh{
 
