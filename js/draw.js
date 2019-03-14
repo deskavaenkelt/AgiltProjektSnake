@@ -12,14 +12,14 @@ var drawModule = (function () {
         ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
         ctx.strokeStyle = 'darkgreen';
         ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-  }
+  };
 
   var pizza = function(x, y) {
         ctx.fillStyle = 'yellow';
         ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
         ctx.fillStyle = 'red';
         ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
-  }
+  };
 
   var drawSnake = function() {
       var length = 3;
@@ -27,12 +27,12 @@ var drawModule = (function () {
       for (var i = length-1; i>=0; i--) {
           snake.push({x:i, y:0});
       }  
-  }
+  };
 
   var scoreText = function () {
       var showScore = document.getElementById('gamescore');
       showScore.innerHTML = "Poäng: " + score;
-  }
+  };
     
   var paint = function(){
       ctx.fillStyle = 'lightgrey';
@@ -40,7 +40,6 @@ var drawModule = (function () {
       ctx.strokeStyle = 'black';
       ctx.strokeRect(0, 0, w, h);
       btnStart.setAttribute('disabled', true);
-
 
       var snakeX = snake[0].x;
       var snakeY = snake[0].y;
@@ -54,7 +53,17 @@ var drawModule = (function () {
       } else if(direction == 'down') { 
         snakeY++; }
 
+      var menu = document.getElementById("menuList");
+      var game = document.getElementById("home");
+      function showMenu(){
+          game.style.display = 'none';
+          menu.style.display = 'block';
+      }
+
       if (snakeX == -1 || snakeX == w/snakeSize || snakeY == -1 || snakeY == h/snakeSize || checkCollision(snakeX, snakeY, snake)) {
+          showMenu();
+          btnStart.removeAttribute('enabled', true);
+
           //restart game
           highScore = localStorage.getItem(localStorageName) == null ? 0 : localStorage.getItem(localStorageName);
           //addHighScore();
@@ -85,7 +94,7 @@ var drawModule = (function () {
         
         pizza(food.x, food.y); 
         scoreText();
-  }
+  };
 
   //Alternativ till highscorelistan, fungerar men plockar bara det högsta värdet
   var addHighScore = function () {
@@ -93,14 +102,13 @@ var drawModule = (function () {
       localStorage.setItem(localStorageName, highScore);
       var showHighScore = document.getElementById('highscore');
       showHighScore.innerHTML = 'Highscore: ' + highScore;
-
-  }
+  };
 
   //Alternativ till highscorelistan som ska plocka de högsta fem värdena, fungerar ej i nuläget
   var addScore = function () {
       highScore.push(score);
 
-      highScore.sort(function (a, b) {return a -b});
+      highScore.sort(function (a, bt) {return a -b});
       highScore.slice(0, 5);
 
       localStorage.setItem('highscore', JSON.stringify(highScore));
@@ -111,16 +119,13 @@ var drawModule = (function () {
       }
       var showHighScore = document.getElementById('highscore');
       showHighScore.innerHTML = 'Highscore: ' + storedList;
-  }
-
-
-
+  };
 
   var createFood = function() {
       food = {
         x: Math.floor((Math.random() * 30) + 1),
         y: Math.floor((Math.random() * 30) + 1)
-      }
+      };
 
       for (var i=0; i>snake.length; i++) {
         var snakeX = snake[i].x;
@@ -131,29 +136,25 @@ var drawModule = (function () {
           food.y = Math.floor((Math.random() * 30) + 1);
         }
       }
-  }
+  };
 
   var checkCollision = function(x, y, array) {
       for(var i = 0; i < array.length; i++) {
         if(array[i].x === x && array[i].y === y)
-        return true;
+            return true;
       }
       return false;
-  }
-
+  };
+      
     var init = function(){
       direction = 'down';
       drawSnake();
       createFood();
       gameloop = setInterval(paint, 80);
       score=0;
-
-  }
-
-
+  };
+  
     return {
       init : init
     };
-
-    
 }());

@@ -1,13 +1,24 @@
 (function (window, document, drawModule) {
 
-var btnStart = document.getElementById('btnStart');
-    btnStart.addEventListener("click", function(){ drawModule.init();});
+let btnStart = document.getElementById('btnStart');
+btnStart.addEventListener("click" ,function(){
+    drawModule.init();
+    showGame();
+});
+
+let menu = document.getElementById("menuList");
+let game = document.getElementById("home");
+
+function showGame(){
+    game.style.display = 'block';
+    menu.style.display = 'none';
+};
 //btnStart.addEventListener("click", function(){ drawModule.init();});
 // Button position and dimensions
- /*   var buttonX = 300;
-    var buttonY = 375;
-    var buttonW = 60;
-    var buttonH = 30;
+ /*   let buttonX = 300;
+    let buttonY = 375;
+    let buttonW = 60;
+    let buttonH = 30;
 
 // Render button
     ctx.fillStyle = 'red';

@@ -1,16 +1,16 @@
-var mycanvas = document.getElementById('mycanvas');
-var ctx = mycanvas.getContext('2d');
-var snakeSize = 15;
+let mycanvas = document.getElementById('mycanvas');
+let ctx = mycanvas.getContext('2d');
+let snakeSize = 15;
 
 //ctx.button = '50px Courier New'
-//var startstart = ctx.button('Start', 300, 375);
+//let startstart = ctx.button('Start', 300, 375);
 
 
-var w = 750;
-var h = 750;
-var score = 0;
-var highScore = [];
-var localStorageName = "storage";
-var snake;
-var food;
+let w = 750;
+let h = 750;
+let score = 0;
+let highScore = [];
+let localStorageName = "storage";
+let snake;
+let food;
 

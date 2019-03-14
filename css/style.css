@@ -31,7 +31,9 @@
         background-position: center center;
         list-style: none;
         padding: 40px;
-
+    }
+    #home {
+        display: none;
     }
 
      button {
