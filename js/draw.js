@@ -62,7 +62,7 @@ var drawModule = (function () {
 
       if (snakeX == -1 || snakeX == w/snakeSize || snakeY == -1 || snakeY == h/snakeSize || checkCollision(snakeX, snakeY, snake)) {
           showMenu();
-          btnStart.removeAttribute('enabled', true);
+          btnStart.removeAttribute('disabled', false);
 
           //restart game
           highScore = localStorage.getItem(localStorageName) == null ? 0 : localStorage.getItem(localStorageName);
