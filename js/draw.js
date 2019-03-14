@@ -5,6 +5,8 @@ snakeBody.src = 'img/snake_body.png';
 let snakeTail = new Image();
 snakeTail.src = 'img/snake_tail.png';
 
+let snakeLength;
+
 let drawModule = (function () {
     let gameloop;
     /*
@@ -29,10 +31,15 @@ let drawModule = (function () {
     };
 
     let drawSnake = function() {
-        let length = 3;
+        /*let length = 3;
         snake = [];
         for (let i = length-1; i>=0; i--) {
             snake.push({x:i, y:0});
+        }*/
+        snakeLength = 3;
+        snake = [];
+        for (let i = snakeLength-1; i>=0; i--) {
+            snake.push({x: i, y: 0});
         }
     };
 
