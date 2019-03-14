@@ -14,4 +14,3 @@ let highScoreList= [];
 let localStorageName = "storage";
 let snake;
 let food;
-
