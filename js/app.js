@@ -1,7 +1,7 @@
 (function (window, document, drawModule) {
 
     let btnStart = document.getElementById('btnStart');
-    btnStart.addEventListener("click" ,function(){
+    btnStart.addEventListener("click", function () {
         drawModule.init();
         showGame();
     });
@@ -9,42 +9,42 @@
     let menu = document.getElementById("menuList");
     let game = document.getElementById("home");
 
-    function showGame(){
+    function showGame() {
         game.style.display = 'block';
         menu.style.display = 'none';
-    };
+    }
 
 
-    document.onkeydown = function(event) {
+    document.onkeydown = function (event) {
 
         keyCode = window.event.keyCode;
         keyCode = event.keyCode;
 
-        switch(keyCode) {
+        switch (keyCode) {
 
             case 37:
-                if (direction != 'right') {
+                if (direction !== 'right') {
                     direction = 'left';
                 }
                 console.log('left');
                 break;
 
             case 39:
-                if (direction != 'left') {
+                if (direction !== 'left') {
                     direction = 'right';
                     console.log('right');
                 }
                 break;
 
             case 38:
-                if (direction != 'down') {
+                if (direction !== 'down') {
                     direction = 'up';
                     console.log('up');
                 }
                 break;
 
             case 40:
-                if (direction != 'up') {
+                if (direction !== 'up') {
                     direction = 'down';
                     console.log('down');
                 }
@@ -83,8 +83,3 @@
 
     }
     */
-
-
-
-
-*/
