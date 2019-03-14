@@ -108,6 +108,19 @@ let drawModule = (function () {
 
         pizza(food.x, food.y);
         scoreText();
+
+        //If the snake eats power it makes somthing happen and this means that, in this case, you will receive powerUp or powerDown a.
+        if (snakeX === power.x && snakeY === power.y) {
+            // Activate powerUp/Down
+
+            // Create new power.
+            createFood();
+        } else {
+
+            // Check if 10 sek has passed since last generated power, remove and generate new if true
+
+        }
+
     };
 
 
@@ -163,8 +176,17 @@ let drawModule = (function () {
         score=0;
     };
 
+    let initHard = function(){
+        direction = 'down';
+        drawSnake();
+        createFood();
+        gameloop = setInterval(paint, 80);
+        score=0;
+    };
+
     return {
-        init : init
+        init : init,
+        initHard : initHard
     };
 }());
 
