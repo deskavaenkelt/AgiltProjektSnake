@@ -66,8 +66,7 @@ var drawModule = (function () {
 
           //restart game
           highScore = localStorage.getItem(localStorageName) == null ? 0 : localStorage.getItem(localStorageName);
-          //addHighScore();
-          addScore();
+          addHighScore();
           btnStart.removeAttribute('disabled', true);
 
           ctx.clearRect(0,0,w,h);
@@ -96,30 +95,25 @@ var drawModule = (function () {
         scoreText();
   };
 
-  //Alternativ till highscorelistan, fungerar men plockar bara det högsta värdet
+  //Highscorelistan, plockar  det högsta värdet
   var addHighScore = function () {
+
       highScore = Math.max(score, highScore);
       localStorage.setItem(localStorageName, highScore);
-      var showHighScore = document.getElementById('highscore');
-      showHighScore.innerHTML = 'Highscore: ' + highScore;
+      var showHighScore = document.getElementById('allTimeHigh');
+      showHighScore.innerHTML = 'All time high: ' + highScore;
+      checkHighScore();
   };
 
-  //Alternativ till highscorelistan som ska plocka de högsta fem värdena, fungerar ej i nuläget
-  var addScore = function () {
-      highScore.push(score);
-
-      highScore.sort(function (a, bt) {return a -b});
-      highScore.slice(0, 5);
-
-      localStorage.setItem('highscore', JSON.stringify(highScore));
-
-      var storedList = localStorage.getItem("highScore");
-      if(storedList){
-          highScore = JSON.parse(storedList);
-      }
-      var showHighScore = document.getElementById('highscore');
-      showHighScore.innerHTML = 'Highscore: ' + storedList;
+  var checkHighScore = function () {
+          highScoreList.push(score);
+          highScoreList = highScoreList.sort((a, b) => b - a);
+          let newList = highScoreList.slice(0, 5);
+          let showHighScoreList = document.getElementById('highscore');
+          showHighScoreList.innerHTML = 'Highscore: ' + newList;
   };
+
+
 
   var createFood = function() {
       food = {

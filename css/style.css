@@ -1,6 +1,7 @@
 
     body {
         margin: 0;
+        background-image: url("../img/23124.jpg");
     }
     #home {
       width: 750px;
@@ -74,7 +75,8 @@
         font-size: 20px;
     }
     #highscore{
-        float: right;
+    }
+    #allTimeHigh{
 
     }
 
