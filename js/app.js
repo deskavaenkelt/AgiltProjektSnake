@@ -2,8 +2,12 @@
 
     let btnStart = document.getElementById('btnStart');
     btnStart.addEventListener("click", function () {
+        // if Easy
         drawModule.init();
         showGame();
+
+        // if Hard osv
+        //drawModule.initHard;
     });
 
     let menu = document.getElementById("menuList");
