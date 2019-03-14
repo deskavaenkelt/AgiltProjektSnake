@@ -139,8 +139,14 @@ let drawModule = (function () {
         highScoreList = highScoreList.sort((a, b) => b - a);
         let newList = highScoreList.slice(0, 5);
         let showHighScoreList = document.getElementById('highScore');
-        showHighScoreList.innerHTML = 'Highscore: ' + newList;
-    };
+        //showHighScoreList.innerHTML = 'Highscore: ' + newList;
+
+        showHighScoreList.textContent = newList.join('\n')
+
+        }
+
+     //   showHighScoreList.innerHTML = 'Highscore: ' + newList[i] + '\n';
+          ;
 
 
     let createFood = function() {

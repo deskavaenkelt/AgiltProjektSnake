@@ -1,7 +1,7 @@
 
     body {
         margin: 0;
-        background-image: url("../img/23124.jpg");
+        background-image: url("../img/23632.jpg");
     }
     #home {
       width: 750px;
@@ -122,6 +122,7 @@
         font-size: 20px;
     }
     #highScore{
+        white-space: pre;
     }
     #allTimeHigh{
 
