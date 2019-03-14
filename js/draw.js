@@ -75,6 +75,10 @@ let drawModule = (function () {
         }
 
 
+          //restart game
+          highScore = localStorage.getItem(localStorageName) == null ? 0 : localStorage.getItem(localStorageName);
+          addHighScore();
+          btnStart.removeAttribute('disabled', true);
         if (snakeX === -1 || snakeX === w/snakeSize || snakeY === -1 || snakeY === h/snakeSize || checkCollision(snakeX, snakeY, snake)) {
             showMenu();
             btnStart.removeAttribute('disabled', false);
@@ -159,6 +163,23 @@ let drawModule = (function () {
 }());
 
 
+  //Highscorelistan, plockar  det högsta värdet
+  var addHighScore = function () {
+
+      highScore = Math.max(score, highScore);
+      localStorage.setItem(localStorageName, highScore);
+      var showHighScore = document.getElementById('allTimeHigh');
+      showHighScore.innerHTML = 'All time high: ' + highScore;
+      checkHighScore();
+  };
+
+  var checkHighScore = function () {
+          highScoreList.push(score);
+          highScoreList = highScoreList.sort((a, b) => b - a);
+          let newList = highScoreList.slice(0, 5);
+          let showHighScoreList = document.getElementById('highscore');
+          showHighScoreList.innerHTML = 'Highscore: ' + newList;
+  };
 
 /*
     ##### Legacy code #####
@@ -170,7 +191,8 @@ let drawModule = (function () {
       highScore.sort(function (a, bt) {return a -b});
       highScore.slice(0, 5);
 
-      localStorage.setItem('highscore', JSON.stringify(highScore));
+
+
 
       let storedList = localStorage.getItem("highScore");
       if(storedList){
