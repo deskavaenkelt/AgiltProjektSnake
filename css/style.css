@@ -15,16 +15,35 @@
       margin-right: auto;
     }
     #diffList {
+        width: 650px;
+        margin: 20px 20px 20px 20px;
+        height: 100px;
+        border: 3px solid greenyellow;
         display: flex;
         justify-content: center;
+        text-align: center;
+
+
     }
     #themeList{
+        width: 670px;
+        margin: 20px 20px 20px 20px;
+        height: 100px;
+        border: 3px solid greenyellow;
         display: flex;
         justify-content: center;
+        text-align: center;
+
+
     }
     #startList {
+        width: 650px;
+        margin: 20px 20px 20px 20px;
+        height: 100px;
+        border: 3px solid greenyellow;
         display: flex;
         justify-content: center;
+        text-align: center;
     }
     #hasseP{
         font-size: 20pt;
@@ -40,18 +59,13 @@
         list-style: none;
     }
     #menuList {
-     /*   border-style: solid;
-        border-width: 2px 10px 40px 200px;
-        border-color: darkred;
-       */
         width: 750px;
         height: 750px;
         border: 3px solid greenyellow;
         background-position: center center;
         list-style: none;
-        padding: 40px;
+        padding: 20px;
         margin: auto;
-
     }
     #home {
         display: none;
@@ -61,14 +75,16 @@
 
      button {
       text-align: center;
+      justify-content: center;
       padding: 20px;
       background-color: green;
       color: white;
       border: none;
       border-radius: 10px;
-      margin: 50px;
+      margin: 20px 15px 60px 15px;
       height: 60px;
       font-size: 12pt;
+
       width: 150px;
 
     }
