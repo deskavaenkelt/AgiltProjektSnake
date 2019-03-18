@@ -6,7 +6,7 @@ let snakeTail = new Image();
 snakeTail.src = 'img/snake_tail.png';
 let btnEasy = document.getElementById('btnEasy');
 let btnHard = document.getElementById('btnHard');
-let btnClassic = document.getElementById("btnClassic").disabled = true;
+//let btnClassic = document.getElementById("btnClassic").disabled = true;
 
 
 
