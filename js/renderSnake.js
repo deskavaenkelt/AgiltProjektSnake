@@ -1,26 +1,26 @@
 // http://rembound.com/articles/creating-a-snake-game-tutorial-with-html5
 
 // All fish elements in one file (sprite image)
-var sprites = new Image();
+let sprites = new Image();
 sprites.src = "img/fish/sprites.png";
 
 // Draw the snake
 function drawSnake() {
     // Loop over every snake segment
-    for (var i=0; i<snake.segments.length; i++) {
-        var segment = snake.segments[i];
-        var segx = segment.x;
-        var segy = segment.y;
-        var tilex = segx*level.tilewidth;
-        var tiley = segy*level.tileheight;
+    for (let i=0; i<snake.segments.length; i++) {
+        let segment = snake.segments[i];
+        let segx = segment.x;
+        let segy = segment.y;
+        let tilex = segx*level.tilewidth;
+        let tiley = segy*level.tileheight;
 
         // Sprite column and row that gets calculated
-        var tx = 0;
-        var ty = 0;
+        let tx = 0;
+        let ty = 0;
 
-        if (i == 0) {
+        if (i === 0) {
             // Head; Determine the correct image
-            var nseg = snake.segments[i+1]; // Next segment
+            let nseg = snake.segments[i+1]; // Next segment
             if (segy < nseg.y) {
                 // Up
                 tx = 3; ty = 0;
@@ -34,9 +34,9 @@ function drawSnake() {
                 // Left
                 tx = 3; ty = 1;
             }
-        } else if (i == snake.segments.length-1) {
+        } else if (i === snake.segments.length-1) {
             // Tail; Determine the correct image
-            var pseg = snake.segments[i-1]; // Prev segment
+            let pseg = snake.segments[i-1]; // Prev segment
             if (pseg.y < segy) {
                 // Up
                 tx = 3; ty = 2;
@@ -52,8 +52,8 @@ function drawSnake() {
             }
         } else {
             // Body; Determine the correct image
-            var pseg = snake.segments[i-1]; // Previous segment
-            var nseg = snake.segments[i+1]; // Next segment
+            let pseg = snake.segments[i-1]; // Previous segment
+            let nseg = snake.segments[i+1]; // Next segment
             if (pseg.x < segx && nseg.x > segx || nseg.x < segx && pseg.x > segx) {
                 // Horizontal Left-Right
                 tx = 1; ty = 0;
