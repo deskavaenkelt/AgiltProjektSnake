@@ -135,16 +135,16 @@ let drawModule = (function () {
 
 
     //AllTimeHigh, plockar  det högsta värdet
-    var addHighScore = function () {
+    let addHighScore = function () {
         highScore = Math.max(score, highScore);
         localStorage.setItem(localStorageName, highScore);
-        var showHighScore = document.getElementById('allTimeHigh');
+        let showHighScore = document.getElementById('allTimeHigh');
         showHighScore.innerHTML = 'All time high: ' + highScore;
         checkHighScore();
     };
 
     //Highscorelistan med spelets fem högsta värden
-    var checkHighScore = function () {
+    let checkHighScore = function () {
         highScoreList.push(score);
         highScoreList = highScoreList.sort((a, b) => b - a);
         let newList = highScoreList.slice(0, 5);

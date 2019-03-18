@@ -37,7 +37,7 @@ let returnSnakeColor = (function () {
         return "#0000cd"
     }
 });
-
+let btnStart = document.getElementById('btnStart');
 
 
 // HighScore
@@ -50,6 +50,7 @@ let localStorageName = "storage";
 // Gameplay
 let snake;
 let food;
+let direction;
 
 
 // Hasse property's

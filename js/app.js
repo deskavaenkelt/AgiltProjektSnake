@@ -91,10 +91,10 @@
     }
 
 
-    document.onkeydown = function (event) {
+    document.onkeydown = function (/*event*/) {
 
         keyCode = window.event.keyCode;
-        keyCode = event.keyCode;
+        //keyCode = event.keyCode;
 
         switch (keyCode) {
 
