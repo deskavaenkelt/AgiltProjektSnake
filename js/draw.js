@@ -56,7 +56,7 @@ let drawModule = (function () {
     };
 
     let paint = function(){
-        ctx.fillStyle = 'lightgrey';
+        ctx.fillStyle = returnCanvasBackgroundColor();
         ctx.fillRect(0, 0, w, h);
         ctx.strokeStyle = 'black';
         ctx.strokeRect(0, 0, w, h);
