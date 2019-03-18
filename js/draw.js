@@ -22,7 +22,7 @@ let drawModule = (function () {
 
     // Colors on the snake
     let bodySnake = function(x, y) {
-        ctx.fillStyle = 'green';
+        ctx.fillStyle = returnSnakeColor();
         ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
         ctx.strokeStyle = 'darkgreen';
         ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
