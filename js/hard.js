@@ -1,11 +1,13 @@
 // 50x50 rutor
 
-function generateAPower() {
-    generatePowerPosition();
-    randomPower();
-}
+/*let generateAPower = function () {
+    generatePowerPosition.publicMethod();
+    randomPower.publicMethod();
+};*/
 
-let generatePowerPosition = (function() {
+
+
+/*let generatePowerPosition = (function() {
     let _privateMethod = function () {
         power = {
             x: Math.floor((Math.random() * 30) + 1),
@@ -33,9 +35,9 @@ let generatePowerPosition = (function() {
     return {
         publicMethod: publicMethod
     };
-})();
+})();*/
 
-let randomPower = (function () {
+/*let randomPower = (function () {
     let _privateMethod = function () {
         let number = ((Math.random() * 4) + 1);
 
@@ -64,10 +66,10 @@ let randomPower = (function () {
     return {
         publicMethod: publicMethod
     };
-})();
+})();*/
 
 
-let activePower = (function () {
+/*let activePower = (function () {
     let _privateMethod = function () {
         if (booleanPowerUpLength) {
             if (7 <= snakeLength) {
@@ -89,7 +91,7 @@ let activePower = (function () {
     return {
         publicMethod: publicMethod
     };
-})();
+})();*/
 
 
 
@@ -110,7 +112,7 @@ let activePower = (function () {
 // work in progress below
 
 
-let powerUpLength = (function () {
+/*let powerUpLength = (function () {
     //let propertyPosition = generatePowerPosition.publicMethod();
 
     let _privateMethod = function () {
@@ -146,6 +148,6 @@ let powerSomethingGenerator = (function () {
     };
 
 })();
-powerSomethingGenerator.publicMethod();
+powerSomethingGenerator.publicMethod();*/
 
 
