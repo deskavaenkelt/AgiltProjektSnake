@@ -5,16 +5,26 @@ let snakeSize = 15;
 let w = 750;
 let h = 750;
 
-// Theme
-let themeClassic = true;
-let themeDjungel;
-let themeOken;
-let themeAkvarie;
+
+
+// Buttons
+// Mode
+let btnEasy = document.getElementById('btnEasy');
+let btnHard = document.getElementById('btnHard');
+//let btnClassic = document.getElementById("btnClassic").disabled = true;  WHY?
 // Theme buttons
 let btnClassic = document.getElementById('btnClassic');
 let btnDjungel = document.getElementById('btnDjungel');
 let btnOken = document.getElementById('btnOken');
 let btnAkvarie = document.getElementById('btnAkvarie');
+
+
+
+// Theme
+let themeClassic = true;
+let themeDjungel;
+let themeOken;
+let themeAkvarie;
 let returnCanvasBackgroundColor = (function () {
     if (themeClassic) {
         return "#BDCA00";
@@ -48,6 +58,7 @@ let localStorageName = "storage";
 
 
 // Gameplay
+let hardMode = false;
 let snake;
 let food;
 let direction;
@@ -58,18 +69,13 @@ let snakeLength;
 let snakeSpeed;
 
 
-/*
-* Hard
-*/
-let hardMode = false;
-let power;
-
-// Power up/down
+// Hard
 let booleanPowerUpLength;
 let booleanPowerDownLength;
 let booleanPowerUpSpeed;
 let booleanPowerDownSpeed;
 
+let power;
 
 // Legacy ?
 
