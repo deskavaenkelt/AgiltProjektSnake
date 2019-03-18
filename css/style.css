@@ -132,7 +132,7 @@
     }
 
     p {
-      font-family: Helvetica;
+        font-family: Helvetica, serif;
       font-weight: bold;
       width: 250px;
       margin: 18px 0 5px 8px;
