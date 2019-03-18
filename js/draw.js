@@ -5,8 +5,6 @@ snakeBody.src = 'img/snake_body.png';
 let snakeTail = new Image();
 snakeTail.src = 'img/snake_tail.png';
 
-let snakeLength;
-
 let drawModule = (function () {
     let gameloop;
     /*
@@ -16,6 +14,7 @@ let drawModule = (function () {
 
      */
 
+    // Colors on the snake
     let bodySnake = function(x, y) {
         ctx.fillStyle = 'green';
         ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
@@ -23,6 +22,7 @@ let drawModule = (function () {
         ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
     };
 
+    // Colors on the pizza
     let pizza = function(x, y) {
         ctx.fillStyle = 'yellow';
         ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
@@ -30,6 +30,7 @@ let drawModule = (function () {
         ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
     };
 
+    // Growth of the snake
     let drawSnake = function() {
         /*let length = 3;
         snake = [];
@@ -59,13 +60,14 @@ let drawModule = (function () {
         let snakeY = snake[0].y;
 
         if (direction === 'right') {
-            snakeX++; }
-        else if (direction === 'left') {
-            snakeX--; }
-        else if (direction === 'up') {
+            snakeX++;
+        } else if (direction === 'left') {
+            snakeX--;
+        } else if (direction === 'up') {
             snakeY--;
         } else if(direction === 'down') {
-            snakeY++; }
+            snakeY++;
+        }
 
         let menu = document.getElementById("menuList");
         let game = document.getElementById("home");
@@ -88,6 +90,8 @@ let drawModule = (function () {
             gameloop = clearInterval(gameloop);
             return;
         }
+
+        // Make snake grow
         let tail;
         if(snakeX === food.x && snakeY === food.y) {
             tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
@@ -148,7 +152,7 @@ let drawModule = (function () {
      //   showHighScoreList.innerHTML = 'Highscore: ' + newList[i] + '\n';
           ;
 
-
+    // Create food and generate random position
     let createFood = function() {
         food = {
             x: Math.floor((Math.random() * 30) + 1),
@@ -166,6 +170,7 @@ let drawModule = (function () {
         }
     };
 
+    // Snake self collision detect?
     let checkCollision = function(x, y, array) {
         for(let i = 0; i < array.length; i++) {
             if(array[i].x === x && array[i].y === y)
@@ -174,25 +179,27 @@ let drawModule = (function () {
         return false;
     };
 
+    // Init parameters at start
     let init = function(){
         direction = 'down';
         drawSnake();
         createFood();
-        gameloop = setInterval(paint, 80);
-        score=0;
-    };
 
-    let initHard = function(){
-        direction = 'down';
-        drawSnake();
-        createFood();
-        gameloop = setInterval(paint, 80);
+        // Hard Mode = Faster game speed and generate a random power every 10 sek
+        if (hardMode) {
+            snakeSpeed = 60;
+            setTimeout(function() {
+                generateAPower();
+            }, 10000);//milliseconds
+        } else {
+            snakeSpeed = 80;
+        }
+        gameloop = setInterval(paint, snakeSpeed);
         score=0;
     };
 
     return {
         init : init,
-        initHard : initHard
     };
 }());
 
