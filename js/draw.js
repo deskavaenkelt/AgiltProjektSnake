@@ -4,21 +4,10 @@ let snakeBody = new Image();
 snakeBody.src = 'img/snake_body.png';
 let snakeTail = new Image();
 snakeTail.src = 'img/snake_tail.png';
-let btnEasy = document.getElementById('btnEasy');
-let btnHard = document.getElementById('btnHard');
-//let btnClassic = document.getElementById("btnClassic").disabled = true;
-
-
 
 
 let drawModule = (function () {
     let gameloop;
-    /*
-    Sabbar spelet att deklarera
-    //let direction;
-    //let btnStart;
-
-     */
 
     // Colors on the snake
     let bodySnake = function(x, y) {
@@ -36,6 +25,13 @@ let drawModule = (function () {
         ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
     };
 
+    // Colors of power-up/-downs
+    let powerUpDown = function(x, y) {
+        ctx.fillStyle = 'red';
+        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
+    };
     // Growth of the snake
     let drawSnake = function() {
         /*let length = 3;
@@ -185,6 +181,55 @@ let drawModule = (function () {
         return false;
     };
 
+    // ##########
+    // #  Hard  #
+    // ##########
+    let generateAPower = function () {
+        generatePowerPosition();
+        randomPower();
+    };
+    let generatePowerPosition = function() {
+        power = {
+            x: Math.floor((Math.random() * 30) + 1),
+            y: Math.floor((Math.random() * 30) + 1)
+        };
+
+        for (let i = 0; i > snake.length; i++) {
+            let snakeX = snake[i].x;
+            let snakeY = snake[i].y;
+
+            // Don't generat on food or snake
+            if (power.x === snakeX && power.y === snakeY || power.y === snakeY && power.x === snakeX ||
+                power.x === food.x && power.y === food.y || power.y === food.y && power.x === food.x)
+            {
+                power.x = Math.floor((Math.random() * 30) + 1);
+                power.y = Math.floor((Math.random() * 30) + 1);
+            }
+        }
+    };
+    let randomPower = function () {
+        let number = ((Math.random() * 4) + 1);
+
+        // Set everyting to false
+        booleanPowerUpLength = false;
+        booleanPowerDownLength = false;
+        booleanPowerUpSpeed = false;
+        booleanPowerDownSpeed = false;
+
+        // Set only one power to True based on generated number
+        if (number === 1) {
+            booleanPowerUpLength = true;
+        } else if (number === 2) {
+            booleanPowerDownLength = true;
+        } else if (number === 3) {
+            booleanPowerUpSpeed = true;
+        } else {
+            booleanPowerDownSpeed = true;
+        }
+    };
+
+    // ##########
+
     // Init parameters at start
     let init = function(){
         direction = 'down';
@@ -194,9 +239,12 @@ let drawModule = (function () {
         // Hard Mode = Faster game speed and generate a random power every 10 sek
         if (hardMode) {
             snakeSpeed = 60;
-            setTimeout(function() {
-                generateAPower();
-            }, 10000);//milliseconds
+            generateAPower();
+/*            setTimeout(function() {
+                //generateAPower();
+            }, 1000);//milliseconds*/
+            // TODO: powerUpDown på rätt ställe?
+            powerUpDown(power.x, power.y);
         } else {
             snakeSpeed = 80;
         }
