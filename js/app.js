@@ -1,4 +1,7 @@
+
 (function (window, document, drawModule) {
+
+
 
     let btnStart = document.getElementById('btnStart');
     btnStart.addEventListener("click", function () {

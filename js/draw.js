@@ -4,6 +4,12 @@ let snakeBody = new Image();
 snakeBody.src = 'img/snake_body.png';
 let snakeTail = new Image();
 snakeTail.src = 'img/snake_tail.png';
+let btnEasy = document.getElementById('btnEasy');
+let btnHard = document.getElementById('btnHard');
+let btnClassic = document.getElementById("btnClassic").disabled = true;
+
+
+
 
 let drawModule = (function () {
     let gameloop;
