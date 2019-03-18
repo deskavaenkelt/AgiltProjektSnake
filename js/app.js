@@ -1,16 +1,85 @@
 
 (function (window, document, drawModule) {
 
+    // Listen after Easy or Hard Mode
+    btnEasy.addEventListener("click", function () {
+        hardMode = false;
+        document.getElementById("btnEasy").style.backgroundColor = "orange";
+        document.getElementById("btnHard").style.backgroundColor = "#0DFFA2";
+        console.log("Hard mode: " + hardMode);
+    });
+
+    btnHard.addEventListener("click", function () {
+        hardMode = true;
+        document.getElementById("btnHard").style.backgroundColor = "orange";
+        document.getElementById("btnEasy").style.backgroundColor = "#0DFFA2";
+        console.log("Hard mode: " + hardMode);
+    });
+
+
+    // Listen after chosen Theme
+    btnClassic.addEventListener("click", function () {
+        themeClassic = true;
+        themeDjungel =  false;
+        themeOken = false;
+        themeAkvarie = false;
+        document.getElementById("btnClassic").style.backgroundColor = "orange";
+        document.getElementById("btnDjungel").style.backgroundColor = "#FF0000";
+        document.getElementById("btnOken").style.backgroundColor = "#FF0000";
+        document.getElementById("btnAkvarie").style.backgroundColor = "#FF0000";
+        console.log("Classic theme: " + themeClassic);
+        console.log("Djungel theme: " + themeDjungel);
+        console.log("Öken theme: " + themeOken);
+        console.log("Akvarie theme: " + themeAkvarie);
+    });
+    btnDjungel.addEventListener("click", function () {
+        themeClassic = false;
+        themeDjungel = true;
+        themeOken = false;
+        themeAkvarie = false;
+        document.getElementById("btnClassic").style.backgroundColor = "#FF0000";
+        document.getElementById("btnDjungel").style.backgroundColor = "orange";
+        document.getElementById("btnOken").style.backgroundColor = "#FF0000";
+        document.getElementById("btnAkvarie").style.backgroundColor = "#FF0000";
+        console.log("Classic theme: " + themeClassic);
+        console.log("Djungel theme: " + themeDjungel);
+        console.log("Öken theme: " + themeOken);
+        console.log("Akvarie theme: " + themeAkvarie);
+    });
+    btnOken.addEventListener("click", function () {
+        themeClassic = false;
+        themeDjungel = false;
+        themeOken = true;
+        themeAkvarie = false;
+        document.getElementById("btnClassic").style.backgroundColor = "#FF0000";
+        document.getElementById("btnDjungel").style.backgroundColor = "#FF0000";
+        document.getElementById("btnOken").style.backgroundColor = "orange";
+        document.getElementById("btnAkvarie").style.backgroundColor = "#FF0000";
+        console.log("Classic theme: " + themeClassic);
+        console.log("Djungel theme: " + themeDjungel);
+        console.log("Öken theme: " + themeOken);
+        console.log("Akvarie theme: " + themeAkvarie);
+    });
+    btnAkvarie.addEventListener("click", function () {
+        themeClassic = false;
+        themeDjungel = false;
+        themeOken = false;
+        themeAkvarie = true;
+        document.getElementById("btnClassic").style.backgroundColor = "#FF0000";
+        document.getElementById("btnDjungel").style.backgroundColor = "#FF0000";
+        document.getElementById("btnOken").style.backgroundColor = "#FF0000";
+        document.getElementById("btnAkvarie").style.backgroundColor = "orange";
+        console.log("Classic theme: " + themeClassic);
+        console.log("Djungel theme: " + themeDjungel);
+        console.log("Öken theme: " + themeOken);
+        console.log("Akvarie theme: " + themeAkvarie);
+    });
 
 
     let btnStart = document.getElementById('btnStart');
     btnStart.addEventListener("click", function () {
-        // if Easy
         drawModule.init();
         showGame();
-
-        // if Hard osv
-        //drawModule.initHard;
     });
 
     let menu = document.getElementById("menuList");
