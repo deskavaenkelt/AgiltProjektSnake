@@ -15,7 +15,17 @@ let btnClassic = document.getElementById('btnClassic');
 let btnDjungel = document.getElementById('btnDjungel');
 let btnOken = document.getElementById('btnOken');
 let btnAkvarie = document.getElementById('btnAkvarie');
-
+let returnCanvasBackgroundColor = (function () {
+    if (themeClassic) {
+        return "#706100";
+    } else if (themeDjungel) {
+        return "#228B22"
+    } else if (themeOken) {
+        return "#f4a460"
+    } else {
+        return "#00ffff"
+    }
+})
 
 // HighScore
 let score = 0;
