@@ -17,7 +17,7 @@ let btnOken = document.getElementById('btnOken');
 let btnAkvarie = document.getElementById('btnAkvarie');
 let returnCanvasBackgroundColor = (function () {
     if (themeClassic) {
-        return "#706100";
+        return "#BDCA00";
     } else if (themeDjungel) {
         return "#228B22"
     } else if (themeOken) {
@@ -25,7 +25,20 @@ let returnCanvasBackgroundColor = (function () {
     } else {
         return "#00ffff"
     }
-})
+});
+let returnSnakeColor = (function () {
+    if (themeClassic) {
+        return "#706100";
+    } else if (themeDjungel) {
+        return "#006400"
+    } else if (themeOken) {
+        return "#8b4513"
+    } else {
+        return "#0000cd"
+    }
+});
+
+
 
 // HighScore
 let score = 0;
