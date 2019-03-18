@@ -76,7 +76,7 @@
     });
 
 
-    let btnStart = document.getElementById('btnStart');
+    let btnStart = document.getElementById('btnStart'); // Går ej flytta på?
     btnStart.addEventListener("click", function () {
         drawModule.init();
         showGame();
@@ -89,7 +89,6 @@
         game.style.display = 'block';
         menu.style.display = 'none';
     }
-
 
     document.onkeydown = function (/*event*/) {
 
