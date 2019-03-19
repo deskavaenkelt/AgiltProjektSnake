@@ -22,6 +22,10 @@ jungle.src = "img/background/jungle.png";
 let aquarium = new Image();
 aquarium.src = "img/background/aquarium.png";
 
+//Power up and down image
+let powerUpDownImg = new Image();
+powerUpDownImg.src = "img/powerUpDown.png";
+
 
 // Hard
 let booleanPowerUpLength = false;

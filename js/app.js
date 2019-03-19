@@ -4,15 +4,30 @@
     // Listen after Easy or Hard Mode
     btnEasy.addEventListener("click", function () {
         hardMode = false;
-        document.getElementById("btnEasy").style.transform = "rotate(-7deg)";
-        document.getElementById("btnHard").style.transform = "rotate(0)";
+        btnEasy.style.transition = "transform .8s";
+        btnEasy.style.transform = "rotate(360deg)";
+        btnClassic.disabled = false;
+        btnDjungel.disabled = false;
+        btnOken.disabled = false;
+        btnAkvarie.disabled = false;
+
+        btnClassic.style.opacity = '1';
+        btnDjungel.style.opacity = '1';
+        btnOken.style.opacity = '1';
+        btnAkvarie.style.opacity = '1';
+
         console.log("Hard mode: " + hardMode);
     });
 
     btnHard.addEventListener("click", function () {
         hardMode = true;
-        document.getElementById("btnHard").style.transform = "rotate(7deg)";
-        document.getElementById("btnEasy").style.transform = "rotate(0)";
+
+        btnHard.style.transition = "transform .8s";
+        btnHard.style.transform = "rotate(360deg)";
+      /*  if (hardMode) {
+            btnEasy.style.transform = "rotate(0)";
+        }
+        */
         console.log("Hard mode: " + hardMode);
     });
 
@@ -23,6 +38,10 @@
         themeDjungel =  false;
         themeOken = false;
         themeAkvarie = false;
+
+        btnStart.disabled = false;
+        btnStart.style.opacity = '1';
+
         document.getElementById("btnClassic").style.backgroundColor = "#9C27B0";
         document.getElementById("btnDjungel").style.backgroundColor = "#607D8B";
         document.getElementById("btnOken").style.backgroundColor = "#607D8B";
@@ -37,6 +56,8 @@
         themeDjungel = true;
         themeOken = false;
         themeAkvarie = false;
+        btnStart.disabled = false;
+        btnStart.style.opacity = '1';
         document.getElementById("btnClassic").style.backgroundColor = "#607D8B";
         document.getElementById("btnDjungel").style.backgroundColor = "#69F0AE";
         document.getElementById("btnOken").style.backgroundColor = "#607D8B";
@@ -51,6 +72,8 @@
         themeDjungel = false;
         themeOken = true;
         themeAkvarie = false;
+        btnStart.disabled = false;
+        btnStart.style.opacity = '1';
         document.getElementById("btnClassic").style.backgroundColor = "#607D8B";
         document.getElementById("btnDjungel").style.backgroundColor = "#607D8B";
         document.getElementById("btnOken").style.backgroundColor = "#FDD835";
@@ -65,6 +88,8 @@
         themeDjungel = false;
         themeOken = false;
         themeAkvarie = true;
+        btnStart.disabled = false;
+        btnStart.style.opacity = '1';
         document.getElementById("btnClassic").style.backgroundColor = "#607D8B";
         document.getElementById("btnDjungel").style.backgroundColor = "#607D8B";
         document.getElementById("btnOken").style.backgroundColor = "#607D8B";
