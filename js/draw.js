@@ -225,8 +225,8 @@ let drawModule = (function () {
     // Create food and generate random position
     let createFood = function() {
         food = {
-            x: Math.floor((Math.random() * 30) + 1),
-            y: Math.floor((Math.random() * 30) + 1)
+            x: Math.floor((Math.random() * 50) + 1),
+            y: Math.floor((Math.random() * 50) + 1)
         };
 
         for (let i=0; i>snake.length; i++) {
@@ -234,8 +234,8 @@ let drawModule = (function () {
             let snakeY = snake[i].y;
 
             if (food.x===snakeX && food.y === snakeY || food.y === snakeY && food.x===snakeX) {
-                food.x = Math.floor((Math.random() * 30) + 1);
-                food.y = Math.floor((Math.random() * 30) + 1);
+                food.x = Math.floor((Math.random() * 50) + 1);
+                food.y = Math.floor((Math.random() * 50) + 1);
             }
         }
     };
