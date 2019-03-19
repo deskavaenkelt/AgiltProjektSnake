@@ -160,7 +160,7 @@ let drawModule = (function () {
             } else if (booleanPowerDownLength) {
                 console.log("Make Hasse longer");
                 // Length +4
-                for (let i = 0; i < 8; i++) {
+                for (let i = 0; i < 16; i++) {
                     tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
                     tail.x = snakeX;
                     tail.y = snakeY;
@@ -173,12 +173,11 @@ let drawModule = (function () {
             } else if (booleanPowerUpSpeed) {
                 console.log("Make Hasse faster");
                 // Speed Down
-                /*if (snakeSpeed === 40) {
+                if (snakeSpeed === 55) {
                     snakeSpeed = 60;
                 } else {
                     snakeSpeed = 80
-                }*/
-                snakeSpeed = 10;
+                }
 
             } else {    // booleanPowerDownSpeed
                 console.log("Make Hasse slower");
@@ -186,10 +185,10 @@ let drawModule = (function () {
                 if (snakeSpeed === 80) {
                     snakeSpeed = 60;
                 } else {
-                    snakeSpeed = 40
+                    snakeSpeed = 55
                 }
             }
-
+            //gameloop = setInterval(paint, snakeSpeed);
             console.log("snake.length = " + snake.length);
             console.log("snakeSpeed = " + snakeSpeed);
 
