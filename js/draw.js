@@ -193,7 +193,7 @@ let drawModule = (function () {
     let checkHighScore = function () {
         highScoreList.push(score);
         highScoreList = highScoreList.sort((a, b) => b - a);
-        let newList = highScoreList.slice(0, 5);
+        let newList = highScoreList.slice(0, 3);
         let showHighScoreList = document.getElementById('highScore');
         //showHighScoreList.innerHTML = 'Highscore: ' + newList;
 

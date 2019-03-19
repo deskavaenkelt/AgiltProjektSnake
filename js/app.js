@@ -8,6 +8,7 @@
         btnEasy.style.transition = "transform .8s";
         btnEasy.style.transform = "rotate(+360deg)";
         btnHard.style.transform = "rotate(0)";
+
         btnHard.style.transition = "transform 0s";
         btnClassic.disabled = false;
         btnDjungel.disabled = false;
