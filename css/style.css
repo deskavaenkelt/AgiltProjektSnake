@@ -1,7 +1,7 @@
 
     body {
         margin: 0;
-        background-image: url("../img/Background-Kids.jpg");
+        background-image: url("../img/background/Background-Kids.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -160,4 +160,6 @@
     #allTimeHigh{
 
     }
+
+
 

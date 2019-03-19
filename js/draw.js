@@ -14,13 +14,13 @@ nutrition.src = "img/hazelnut.png";
 
 //Background image
 let desert = new Image();
-desert.src = "img/background/desert.png";
+desert.src = "img/background/desert3.jpg";
 let classic = new Image();
 classic.src = "img/background/classic.png";
 let jungle = new Image();
-jungle.src = "img/background/jungle.png";
+jungle.src = "img/background/jungle3.png";
 let aquarium = new Image();
-aquarium.src = "img/background/aquarium.png";
+aquarium.src = "img/background/aquarium.jpg";
 
 
 let drawModule = (function () {
