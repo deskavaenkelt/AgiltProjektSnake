@@ -4,6 +4,7 @@
     // Listen after Easy or Hard Mode
     btnEasy.addEventListener("click", function () {
         hardMode = false;
+
         btnEasy.style.transition = "transform .8s";
         btnEasy.style.transform = "rotate(360deg)";
         btnClassic.disabled = false;
