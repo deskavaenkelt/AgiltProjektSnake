@@ -1,9 +1,26 @@
-let snakeHead = new Image();
-snakeHead.src = 'img/snake_head.png';
-let snakeBody = new Image();
-snakeBody.src = 'img/snake_body.png';
-let snakeTail = new Image();
-snakeTail.src = 'img/snake_tail.png';
+// Theme sprite
+let desertSprite = new Image();
+desertSprite.src = 'img/sprite/desert_body.png';
+let aquariumSprite = new Image();
+aquariumSprite.src = "img/sprite/aquarium_body.png";
+let classicSprite = new Image();
+classicSprite.src = "img/sprite/classic_body.png";
+let jungleSprite = new Image();
+jungleSprite.src = "img/sprite/jungle_body.png";
+
+// Food
+let nutrition = new Image();
+nutrition.src = "img/hazelnut.png";
+
+//Background image
+let desert = new Image();
+desert.src = "img/background/desert.png";
+let classic = new Image();
+classic.src = "img/background/classic.png";
+let jungle = new Image();
+jungle.src = "img/background/jungle.png";
+let aquarium = new Image();
+aquarium.src = "img/background/aquarium.png";
 
 
 let drawModule = (function () {
@@ -11,18 +28,18 @@ let drawModule = (function () {
 
     // Colors on the snake
     let bodySnake = function(x, y) {
-        ctx.fillStyle = returnSnakeColor();
-        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-        ctx.strokeStyle = 'darkgreen';
-        ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        //ctx.drawImage = returnSnakeColor();
+        ctx.drawImage(returnSnakeColor(), x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        //ctx.strokeStyle = 'darkgreen';
+        //ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
     };
 
     // Colors on the pizza
     let pizza = function(x, y) {
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-        ctx.fillStyle = 'red';
-        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
+        //ctx.fillStyle = 'yellow';
+        ctx.drawImage(nutrition, x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        //ctx.fillStyle = 'red';
+        //ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
     };
 
     // Colors of power-up/-downs
@@ -52,10 +69,10 @@ let drawModule = (function () {
     };
 
     let paint = function(){
-        ctx.fillStyle = returnCanvasBackgroundColor();
-        ctx.fillRect(0, 0, w, h);
-        ctx.strokeStyle = 'black';
-        ctx.strokeRect(0, 0, w, h);
+        //ctx.fillStyle = returnCanvasBackgroundColor();
+        ctx.drawImage(returnCanvasBackgroundColor(), 0, 0, w, h);
+        //ctx.strokeStyle = 'black';
+        //ctx.strokeRect(0, 0, w, h);
         btnStart.setAttribute('disabled', true);
 
         let snakeX = snake[0].x;
