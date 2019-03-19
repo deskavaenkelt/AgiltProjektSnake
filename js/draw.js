@@ -152,7 +152,7 @@ let drawModule = (function () {
             if (booleanPowerUpLength) {
                 console.log("Make Hasse shorter");
                 // Length -4
-                if (snake.length >= 7) {
+                if (snake.length >= 11) {
                     for (let i = 0; i < 8; i++) {
                         tail = snake.pop();
                     }
