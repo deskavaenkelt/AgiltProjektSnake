@@ -17,14 +17,17 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .hasseP{
-        font-size: 26pt;
+    .hasseP {
         margin: 20px auto 20px auto;
         padding: 0;
         justify-content: center;
         display: flex;
     }
 
+    .hasseP p {
+        font-size: 26pt;
+        font-family: "Courier New", Courier, monospace;
+    }
     #diffList {
         width: 650px;
         margin: 20px auto 20px auto;
@@ -58,7 +61,7 @@
         background-color: #4CAF50;
     }
     #startList button:hover {
-        background-color: black;
+        opacity: 1.1;
     }
     #themeList{
         width: 700px;
@@ -83,9 +86,11 @@
     }
 
     #highscoreList {
+        background-color: #80DEEA;
+        opacity: 0.5;
         width: 200px;
         margin: auto;
-        height: 100px;
+        height: 180px;
         /*border: 3px solid blue; */
         justify-content: center;
         text-align: center;

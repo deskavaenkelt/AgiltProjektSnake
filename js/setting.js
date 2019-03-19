@@ -9,6 +9,7 @@ let h = 750;
 
 // Buttons
 // Mode
+let highscoreList = document.getElementById('highscoreList');
 let btnEasy = document.getElementById('btnEasy');
 let btnHard = document.getElementById('btnHard');
 //let btnClassic = document.getElementById("btnClassic").disabled = true;  WHY?

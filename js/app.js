@@ -4,6 +4,7 @@
     // Listen after Easy or Hard Mode
     btnEasy.addEventListener("click", function () {
         hardMode = false;
+
         btnEasy.style.transition = "transform .8s";
         btnEasy.style.transform = "rotate(360deg)";
         btnClassic.disabled = false;
@@ -20,6 +21,15 @@
     });
 
     btnHard.addEventListener("click", function () {
+        btnClassic.disabled = false;
+        btnDjungel.disabled = false;
+        btnOken.disabled = false;
+        btnAkvarie.disabled = false;
+
+        btnClassic.style.opacity = '1';
+        btnDjungel.style.opacity = '1';
+        btnOken.style.opacity = '1';
+        btnAkvarie.style.opacity = '1';
         hardMode = true;
 
         btnHard.style.transition = "transform .8s";
@@ -41,7 +51,8 @@
 
         btnStart.disabled = false;
         btnStart.style.opacity = '1';
-
+        btnClassic.style.transition = "transform .8s";
+        btnClassic.style.transform = "rotate(360deg)";
         document.getElementById("btnClassic").style.backgroundColor = "#9C27B0";
         document.getElementById("btnDjungel").style.backgroundColor = "#607D8B";
         document.getElementById("btnOken").style.backgroundColor = "#607D8B";
@@ -58,6 +69,8 @@
         themeAkvarie = false;
         btnStart.disabled = false;
         btnStart.style.opacity = '1';
+        btnDjungel.style.transition = "transform .8s";
+        btnDjungel.style.transform = "rotate(360deg)";
         document.getElementById("btnClassic").style.backgroundColor = "#607D8B";
         document.getElementById("btnDjungel").style.backgroundColor = "#69F0AE";
         document.getElementById("btnOken").style.backgroundColor = "#607D8B";
@@ -74,6 +87,8 @@
         themeAkvarie = false;
         btnStart.disabled = false;
         btnStart.style.opacity = '1';
+        btnOken.style.transition = "transform .8s";
+        btnOken.style.transform = "rotate(360deg)";
         document.getElementById("btnClassic").style.backgroundColor = "#607D8B";
         document.getElementById("btnDjungel").style.backgroundColor = "#607D8B";
         document.getElementById("btnOken").style.backgroundColor = "#FDD835";
@@ -90,6 +105,8 @@
         themeAkvarie = true;
         btnStart.disabled = false;
         btnStart.style.opacity = '1';
+        btnAkvarie.style.transition = "transform .8s";
+        btnAkvarie.style.transform = "rotate(360deg)";
         document.getElementById("btnClassic").style.backgroundColor = "#607D8B";
         document.getElementById("btnDjungel").style.backgroundColor = "#607D8B";
         document.getElementById("btnOken").style.backgroundColor = "#607D8B";
@@ -103,8 +120,11 @@
 
     let btnStart = document.getElementById('btnStart'); // Går ej flytta på?
     btnStart.addEventListener("click", function () {
+        btnStart.style.transition = "transform .8s";
+        btnStart.style.transform = "rotate(360deg)";
         drawModule.init();
         showGame();
+
     });
 
     let menu = document.getElementById("menuList");
