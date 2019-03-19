@@ -53,8 +53,7 @@
         themeAkvarie = false;
         document.getElementById("btnClassic").style.backgroundColor = "#607D8B";
         document.getElementById("btnDjungel").style.backgroundColor = "#607D8B";
-        document.getElementById("btnOken").style.backgroundColor = "#FFEE58";
-        document.getElementById("btnOken").style.color = "black";
+        document.getElementById("btnOken").style.backgroundColor = "#FDD835";
         document.getElementById("btnAkvarie").style.backgroundColor = "#607D8B";
         console.log("Classic theme: " + themeClassic);
         console.log("Djungel theme: " + themeDjungel);
