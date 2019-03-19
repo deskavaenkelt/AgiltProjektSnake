@@ -9,6 +9,7 @@ let h = 750;
 
 // Buttons
 // Mode
+let highscoreList = document.getElementById('highscoreList');
 let btnEasy = document.getElementById('btnEasy');
 let btnHard = document.getElementById('btnHard');
 //let btnClassic = document.getElementById("btnClassic").disabled = true;  WHY?
@@ -17,6 +18,22 @@ let btnClassic = document.getElementById('btnClassic');
 let btnDjungel = document.getElementById('btnDjungel');
 let btnOken = document.getElementById('btnOken');
 let btnAkvarie = document.getElementById('btnAkvarie');
+let btnStart = document.getElementById('btnStart');
+
+btnClassic.disabled = true;
+btnDjungel.disabled = true;
+btnOken.disabled = true;
+btnAkvarie.disabled = true;
+btnStart.disabled = true;
+
+btnClassic.style.opacity = '0.1';
+btnDjungel.style.opacity = '0.1';
+btnOken.style.opacity = '0.1';
+btnAkvarie.style.opacity = '0.1';
+btnStart.style.opacity = '0.1';
+
+
+
 
 
 
@@ -47,7 +64,6 @@ let returnSnakeColor = (function () {
         return aquariumSprite
     }
 });
-let btnStart = document.getElementById('btnStart');
 
 
 // HighScore
@@ -66,14 +82,10 @@ let direction;
 
 // Hasse property's
 let snakeLength;
-let snakeSpeed;
+let snakeSpeed; // 80, 60, 40
 
 
-// Hard
-let booleanPowerUpLength;
-let booleanPowerDownLength;
-let booleanPowerUpSpeed;
-let booleanPowerDownSpeed;
+
 
 let power;
 
