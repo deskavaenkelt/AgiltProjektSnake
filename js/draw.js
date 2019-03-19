@@ -14,13 +14,13 @@ nutrition.src = "img/hazelnut.png";
 
 //Background image
 let desert = new Image();
-desert.src = "img/background/desert.png";
+desert.src = "img/background/desert3.jpg";
 let classic = new Image();
 classic.src = "img/background/classic.png";
 let jungle = new Image();
-jungle.src = "img/background/jungle.png";
+jungle.src = "img/background/jungle3.png";
 let aquarium = new Image();
-aquarium.src = "img/background/aquarium.png";
+aquarium.src = "img/background/aquarium.jpg";
 
 //Power up and down image
 let powerUpDownImg = new Image();
@@ -212,7 +212,7 @@ let drawModule = (function () {
     let checkHighScore = function () {
         highScoreList.push(score);
         highScoreList = highScoreList.sort((a, b) => b - a);
-        let newList = highScoreList.slice(0, 5);
+        let newList = highScoreList.slice(0, 3);
         let showHighScoreList = document.getElementById('highScore');
         //showHighScoreList.innerHTML = 'Highscore: ' + newList;
 
