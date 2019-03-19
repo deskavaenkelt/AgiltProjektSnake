@@ -58,7 +58,7 @@
         background-color: #4CAF50;
     }
     #startList button:hover {
-        background-color: black;
+        opacity: 1.1;
     }
     #themeList{
         width: 700px;
