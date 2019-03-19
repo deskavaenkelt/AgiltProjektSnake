@@ -22,6 +22,16 @@ jungle.src = "img/background/jungle.png";
 let aquarium = new Image();
 aquarium.src = "img/background/aquarium.png";
 
+//Power up and down image
+let powerUpDownImg = new Image();
+powerUpDownImg.src = "img/powerUpDown.png";
+
+
+// Hard
+let booleanPowerUpLength = false;
+let booleanPowerDownLength = false;
+let booleanPowerUpSpeed = false;
+let booleanPowerDownSpeed = false;
 
 let drawModule = (function () {
     let gameloop;
@@ -124,10 +134,48 @@ let drawModule = (function () {
 
         pizza(food.x, food.y);
         scoreText();
+
+        // ##########
+        // #  Hard  #
+        // ##########
         if (hardMode) {
             powerUpDown(power.x, power.y);
         }
+        if(snakeX === power.x && snakeY === power.y) {
+            // Get a point
+            score++;
+            // Do the effect
+            if (booleanPowerUpLength) {
+                // Length -4
+                if (snakeLength >= 7) {
+                    snakeLength -= 4;
+                } else {
+                    // Min length = 3
+                    snakeLength = 3;
+                }
+            } else if (booleanPowerDownLength) {
+                // Length +4
+                snakeLength += 4;
+            } else if (booleanPowerUpSpeed) {
+                // Speed Down
+                if (snakeSpeed === 40) {
+                    snakeSpeed = 60;
+                } else {
+                    snakeSpeed = 80
+                }
 
+            } else {    // booleanPowerDownSpeed
+                // Speed Up
+                if (snakeSpeed === 80) {
+                    snakeSpeed = 60;
+                } else {
+                    snakeSpeed = 40
+                }
+            }
+
+            //Create new effect
+            generateAPower();
+        }
     };
 
 
@@ -196,13 +244,11 @@ let drawModule = (function () {
     };
     // This is the combined function
     let generateAPower = function () {
-        console.log("GenerateAPower is working");
         generatePowerPosition();
         randomPower();
     };
     // Generate the position
     let generatePowerPosition = function() {
-        console.log("generatePowerPosition is working");
         power = {
             x: Math.floor((Math.random() * 30) + 1),
             y: Math.floor((Math.random() * 30) + 1)
@@ -223,8 +269,9 @@ let drawModule = (function () {
     };
     // Generate the random power
     let randomPower = function () {
-        console.log("randomPower is working");
-        let number = ((Math.random() * 4) + 1);
+        //console.log("randomPower is working");
+        let number = (Math.floor(Math.random() * 4) + 1);
+        console.log("random number: " + number);
 
         // Set everyting to false
         booleanPowerUpLength = false;
@@ -242,6 +289,11 @@ let drawModule = (function () {
         } else {
             booleanPowerDownSpeed = true;
         }
+        console.log("booleanPowerUpLength: " + booleanPowerUpLength);
+        console.log("booleanPowerDownLength: " + booleanPowerUpLength);
+        console.log("booleanPowerUpSpeed: " + booleanPowerUpLength);
+        console.log("booleanPowerDownSpeed: " + booleanPowerUpLength);
+
     };
 
     // ##########
@@ -256,9 +308,9 @@ let drawModule = (function () {
         if (hardMode) {
             snakeSpeed = 60;
             //generateAPower();
-            /*setTimeout(function() {
+            setTimeout(function() {
                 generateAPower();
-            }, 1000);//milliseconds*/
+            }, 1000);//milliseconds
         } else {
             snakeSpeed = 80;
         }

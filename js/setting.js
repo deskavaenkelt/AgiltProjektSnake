@@ -81,14 +81,10 @@ let direction;
 
 // Hasse property's
 let snakeLength;
-let snakeSpeed;
+let snakeSpeed; // 80, 60, 40
 
 
-// Hard
-let booleanPowerUpLength;
-let booleanPowerDownLength;
-let booleanPowerUpSpeed;
-let booleanPowerDownSpeed;
+
 
 let power;
 
