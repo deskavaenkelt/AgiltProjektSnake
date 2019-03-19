@@ -27,6 +27,8 @@ let powerUpDownImg = new Image();
 powerUpDownImg.src = "img/powerUpDown.png";
 
 
+let tail;
+
 // Hard
 let booleanPowerUpLength;
 let booleanPowerDownLength;
@@ -114,7 +116,6 @@ let drawModule = (function () {
         }
 
         // Make snake grow
-        let tail;
         if(snakeX === food.x && snakeY === food.y) {
             tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
             score ++;
@@ -142,37 +143,54 @@ let drawModule = (function () {
             powerUpDown(power.x, power.y);
         }
         if(snakeX === power.x && snakeY === power.y) {
-            console.log("read powerUp")
             // Get a point
             score++;
             // Do the effect
+            //snakeLength = snakeLength + 4;
+
+
             if (booleanPowerUpLength) {
+                console.log("Make Hasse shorter");
                 // Length -4
-                if (snakeLength >= 7) {
-                    snakeLength -= 4;
-                } else {
-                    // Min length = 3
-                    snakeLength = 3;
+                if (snake.length >= 11) {
+                    for (let i = 0; i < 8; i++) {
+                        tail = snake.pop();
+                    }
                 }
             } else if (booleanPowerDownLength) {
+                console.log("Make Hasse longer");
                 // Length +4
-                snakeLength += 4;
+                for (let i = 0; i < 16; i++) {
+                    tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
+                    tail.x = snakeX;
+                    tail.y = snakeY;
+                    snake.unshift(tail); //puts back the tail as the first cell
+                    for(let i = 0; i < snake.length; i++) {
+                        bodySnake(snake[i].x, snake[i].y);
+                    }
+                }
+
             } else if (booleanPowerUpSpeed) {
+                console.log("Make Hasse faster");
                 // Speed Down
-                if (snakeSpeed === 40) {
+                if (snakeSpeed === 55) {
                     snakeSpeed = 60;
                 } else {
                     snakeSpeed = 80
                 }
 
             } else {    // booleanPowerDownSpeed
+                console.log("Make Hasse slower");
                 // Speed Up
                 if (snakeSpeed === 80) {
                     snakeSpeed = 60;
                 } else {
-                    snakeSpeed = 40
+                    snakeSpeed = 55
                 }
             }
+            //gameloop = setInterval(paint, snakeSpeed);
+            console.log("snake.length = " + snake.length);
+            console.log("snakeSpeed = " + snakeSpeed);
 
             //Create new effect
             generateAPower();
@@ -237,11 +255,7 @@ let drawModule = (function () {
     // Colors of power-up/-downs
     let powerUpDown = function(x, y) {
         // This is the border of the power-up/-downs
-        ctx.fillStyle = 'red';
-        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-        // This is the single square
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
+        ctx.drawImage(powerUpDownImg, x*snakeSize, y*snakeSize, snakeSize, snakeSize);
     };
     // This is the combined function
     let generateAPower = function () {
@@ -272,7 +286,7 @@ let drawModule = (function () {
     let randomPower = function () {
         //console.log("randomPower is working");
         let number = (Math.floor(Math.random() * 4) + 1);
-        console.log("random number: " + number);
+        //console.log("random number: " + number);
 
         // Set everyting to false
         booleanPowerUpLength = false;
@@ -283,45 +297,20 @@ let drawModule = (function () {
         // Set only one power to True based on generated number
         if (number === 1) {
             booleanPowerUpLength = true;
-            // console.log("Number was 1: " + booleanPowerUpLength);
-            console.log("Number was 1: down ");
-            console.log("booleanPowerUpLength: " + booleanPowerUpLength);
-            console.log("booleanPowerDownLength: " + booleanPowerDownLength);
-            console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
-            console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
         }
         if (number === 2) {
             booleanPowerDownLength = true;
-            // console.log("Number was 2: " + booleanPowerDownLength);
-            console.log("Number was 2: down ");
-            console.log("booleanPowerUpLength: " + booleanPowerUpLength);
-            console.log("booleanPowerDownLength: " + booleanPowerDownLength);
-            console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
-            console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
         }
         if (number === 3) {
             booleanPowerUpSpeed = true;
-            // console.log("Number was 3: " + booleanPowerUpLength);
-            console.log("Number was 3: down ");
-            console.log("booleanPowerUpLength: " + booleanPowerUpLength);
-            console.log("booleanPowerDownLength: " + booleanPowerDownLength);
-            console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
-            console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
         }
         if (number === 4){
             booleanPowerDownSpeed = true;
-            // console.log("Number was 4: " + booleanPowerUpLength);
-            console.log("Number was 4: down ");
-            console.log("booleanPowerUpLength: " + booleanPowerUpLength);
-            console.log("booleanPowerDownLength: " + booleanPowerDownLength);
-            console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
-            console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
         }
-        /*
-            console.log("booleanPowerUpLength: " + booleanPowerUpLength);
-            console.log("booleanPowerDownLength: " + booleanPowerDownLength);
-            console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
-            console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);*/
+        /*console.log("booleanPowerUpLength: " + booleanPowerUpLength);
+        console.log("booleanPowerDownLength: " + booleanPowerDownLength);
+        console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
+        console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);*/
 
     };
 
