@@ -1,9 +1,26 @@
-let snakeHead = new Image();
-snakeHead.src = 'img/snake_head.png';
-let snakeBody = new Image();
-snakeBody.src = 'img/snake_body.png';
-let snakeTail = new Image();
-snakeTail.src = 'img/snake_tail.png';
+// Theme sprite
+let desertSprite = new Image();
+desertSprite.src = 'img/sprite/desert_body.png';
+let aquariumSprite = new Image();
+aquariumSprite.src = "img/sprite/aquarium_body.png";
+let classicSprite = new Image();
+classicSprite.src = "img/sprite/classic_body.png";
+let jungleSprite = new Image();
+jungleSprite.src = "img/sprite/jungle_body.png";
+
+// Food
+let nutrition = new Image();
+nutrition.src = "img/hazelnut.png";
+
+//Background image
+let desert = new Image();
+desert.src = "img/background/desert.png";
+let classic = new Image();
+classic.src = "img/background/classic.png";
+let jungle = new Image();
+jungle.src = "img/background/jungle.png";
+let aquarium = new Image();
+aquarium.src = "img/background/aquarium.png";
 
 
 let drawModule = (function () {
@@ -11,27 +28,20 @@ let drawModule = (function () {
 
     // Colors on the snake
     let bodySnake = function(x, y) {
-        ctx.fillStyle = returnSnakeColor();
-        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-        ctx.strokeStyle = 'darkgreen';
-        ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        //ctx.drawImage = returnSnakeColor();
+        ctx.drawImage(returnSnakeColor(), x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        //ctx.strokeStyle = 'darkgreen';
+        //ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
     };
 
     // Colors on the pizza
     let pizza = function(x, y) {
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-        ctx.fillStyle = 'red';
-        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
+        //ctx.fillStyle = 'yellow';
+        ctx.drawImage(nutrition, x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        //ctx.fillStyle = 'red';
+        //ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
     };
 
-    // Colors of power-up/-downs
-    let powerUpDown = function(x, y) {
-        ctx.fillStyle = 'red';
-        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
-    };
     // Growth of the snake
     let drawSnake = function() {
         /*let length = 3;
@@ -52,10 +62,10 @@ let drawModule = (function () {
     };
 
     let paint = function(){
-        ctx.fillStyle = returnCanvasBackgroundColor();
-        ctx.fillRect(0, 0, w, h);
-        ctx.strokeStyle = 'black';
-        ctx.strokeRect(0, 0, w, h);
+        //ctx.fillStyle = returnCanvasBackgroundColor();
+        ctx.drawImage(returnCanvasBackgroundColor(), 0, 0, w, h);
+        //ctx.strokeStyle = 'black';
+        //ctx.strokeRect(0, 0, w, h);
         btnStart.setAttribute('disabled', true);
 
         let snakeX = snake[0].x;
@@ -114,6 +124,9 @@ let drawModule = (function () {
 
         pizza(food.x, food.y);
         scoreText();
+        if (hardMode) {
+            powerUpDown(power.x, power.y);
+        }
 
     };
 
@@ -160,7 +173,7 @@ let drawModule = (function () {
         }
     };
 
-    // Snake self collision detect?
+    // Create a checkCollision function to detect if the snake has crashed on its body itself:
     let checkCollision = function(x, y, array) {
         for(let i = 0; i < array.length; i++) {
             if(array[i].x === x && array[i].y === y)
@@ -172,11 +185,24 @@ let drawModule = (function () {
     // ##########
     // #  Hard  #
     // ##########
+    // Colors of power-up/-downs
+    let powerUpDown = function(x, y) {
+        // This is the border of the power-up/-downs
+        ctx.fillStyle = 'red';
+        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        // This is the single square
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
+    };
+    // This is the combined function
     let generateAPower = function () {
+        console.log("GenerateAPower is working");
         generatePowerPosition();
         randomPower();
     };
+    // Generate the position
     let generatePowerPosition = function() {
+        console.log("generatePowerPosition is working");
         power = {
             x: Math.floor((Math.random() * 30) + 1),
             y: Math.floor((Math.random() * 30) + 1)
@@ -195,7 +221,9 @@ let drawModule = (function () {
             }
         }
     };
+    // Generate the random power
     let randomPower = function () {
+        console.log("randomPower is working");
         let number = ((Math.random() * 4) + 1);
 
         // Set everyting to false
@@ -227,12 +255,10 @@ let drawModule = (function () {
         // Hard Mode = Faster game speed and generate a random power every 10 sek
         if (hardMode) {
             snakeSpeed = 60;
-            generateAPower();
-/*            setTimeout(function() {
-                //generateAPower();
+            //generateAPower();
+            /*setTimeout(function() {
+                generateAPower();
             }, 1000);//milliseconds*/
-            // TODO: powerUpDown på rätt ställe?
-            powerUpDown(power.x, power.y);
         } else {
             snakeSpeed = 80;
         }

@@ -43,24 +43,24 @@ let themeOken;
 let themeAkvarie;
 let returnCanvasBackgroundColor = (function () {
     if (themeClassic) {
-        return "#BDCA00";
+        return classic
     } else if (themeDjungel) {
-        return "#228B22"
+        return jungle
     } else if (themeOken) {
-        return "#f4a460"
+        return desert
     } else {
-        return "#00ffff"
+        return aquarium
     }
 });
 let returnSnakeColor = (function () {
     if (themeClassic) {
-        return "#706100";
+        return classicSprite
     } else if (themeDjungel) {
-        return "#006400"
+        return jungleSprite
     } else if (themeOken) {
-        return "#8b4513"
+        return desertSprite
     } else {
-        return "#0000cd"
+        return aquariumSprite
     }
 });
 
