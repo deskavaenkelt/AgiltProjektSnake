@@ -42,13 +42,6 @@ let drawModule = (function () {
         //ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
     };
 
-    // Colors of power-up/-downs
-    let powerUpDown = function(x, y) {
-        ctx.fillStyle = 'red';
-        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
-    };
     // Growth of the snake
     let drawSnake = function() {
         /*let length = 3;
@@ -131,6 +124,9 @@ let drawModule = (function () {
 
         pizza(food.x, food.y);
         scoreText();
+        if (hardMode) {
+            powerUpDown(power.x, power.y);
+        }
 
     };
 
@@ -177,7 +173,7 @@ let drawModule = (function () {
         }
     };
 
-    // Snake self collision detect?
+    // Create a checkCollision function to detect if the snake has crashed on its body itself:
     let checkCollision = function(x, y, array) {
         for(let i = 0; i < array.length; i++) {
             if(array[i].x === x && array[i].y === y)
@@ -189,11 +185,24 @@ let drawModule = (function () {
     // ##########
     // #  Hard  #
     // ##########
+    // Colors of power-up/-downs
+    let powerUpDown = function(x, y) {
+        // This is the border of the power-up/-downs
+        ctx.fillStyle = 'red';
+        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        // This is the single square
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
+    };
+    // This is the combined function
     let generateAPower = function () {
+        console.log("GenerateAPower is working");
         generatePowerPosition();
         randomPower();
     };
+    // Generate the position
     let generatePowerPosition = function() {
+        console.log("generatePowerPosition is working");
         power = {
             x: Math.floor((Math.random() * 30) + 1),
             y: Math.floor((Math.random() * 30) + 1)
@@ -212,7 +221,9 @@ let drawModule = (function () {
             }
         }
     };
+    // Generate the random power
     let randomPower = function () {
+        console.log("randomPower is working");
         let number = ((Math.random() * 4) + 1);
 
         // Set everyting to false
@@ -244,12 +255,10 @@ let drawModule = (function () {
         // Hard Mode = Faster game speed and generate a random power every 10 sek
         if (hardMode) {
             snakeSpeed = 60;
-            generateAPower();
-/*            setTimeout(function() {
-                //generateAPower();
+            //generateAPower();
+            /*setTimeout(function() {
+                generateAPower();
             }, 1000);//milliseconds*/
-            // TODO: powerUpDown på rätt ställe?
-            powerUpDown(power.x, power.y);
         } else {
             snakeSpeed = 80;
         }
