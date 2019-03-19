@@ -28,10 +28,10 @@ powerUpDownImg.src = "img/powerUpDown.png";
 
 
 // Hard
-let booleanPowerUpLength = false;
-let booleanPowerDownLength = false;
-let booleanPowerUpSpeed = false;
-let booleanPowerDownSpeed = false;
+let booleanPowerUpLength;
+let booleanPowerDownLength;
+let booleanPowerUpSpeed;
+let booleanPowerDownSpeed;
 
 let drawModule = (function () {
     let gameloop;
@@ -142,6 +142,7 @@ let drawModule = (function () {
             powerUpDown(power.x, power.y);
         }
         if(snakeX === power.x && snakeY === power.y) {
+            console.log("read powerUp")
             // Get a point
             score++;
             // Do the effect
@@ -282,17 +283,45 @@ let drawModule = (function () {
         // Set only one power to True based on generated number
         if (number === 1) {
             booleanPowerUpLength = true;
-        } else if (number === 2) {
-            booleanPowerDownLength = true;
-        } else if (number === 3) {
-            booleanPowerUpSpeed = true;
-        } else {
-            booleanPowerDownSpeed = true;
+            // console.log("Number was 1: " + booleanPowerUpLength);
+            console.log("Number was 1: down ");
+            console.log("booleanPowerUpLength: " + booleanPowerUpLength);
+            console.log("booleanPowerDownLength: " + booleanPowerDownLength);
+            console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
+            console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
         }
-        console.log("booleanPowerUpLength: " + booleanPowerUpLength);
-        console.log("booleanPowerDownLength: " + booleanPowerUpLength);
-        console.log("booleanPowerUpSpeed: " + booleanPowerUpLength);
-        console.log("booleanPowerDownSpeed: " + booleanPowerUpLength);
+        if (number === 2) {
+            booleanPowerDownLength = true;
+            // console.log("Number was 2: " + booleanPowerDownLength);
+            console.log("Number was 2: down ");
+            console.log("booleanPowerUpLength: " + booleanPowerUpLength);
+            console.log("booleanPowerDownLength: " + booleanPowerDownLength);
+            console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
+            console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
+        }
+        if (number === 3) {
+            booleanPowerUpSpeed = true;
+            // console.log("Number was 3: " + booleanPowerUpLength);
+            console.log("Number was 3: down ");
+            console.log("booleanPowerUpLength: " + booleanPowerUpLength);
+            console.log("booleanPowerDownLength: " + booleanPowerDownLength);
+            console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
+            console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
+        }
+        if (number === 4){
+            booleanPowerDownSpeed = true;
+            // console.log("Number was 4: " + booleanPowerUpLength);
+            console.log("Number was 4: down ");
+            console.log("booleanPowerUpLength: " + booleanPowerUpLength);
+            console.log("booleanPowerDownLength: " + booleanPowerDownLength);
+            console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
+            console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
+        }
+        /*
+            console.log("booleanPowerUpLength: " + booleanPowerUpLength);
+            console.log("booleanPowerDownLength: " + booleanPowerDownLength);
+            console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
+            console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);*/
 
     };
 
