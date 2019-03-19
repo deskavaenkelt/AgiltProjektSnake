@@ -4,15 +4,15 @@
     // Listen after Easy or Hard Mode
     btnEasy.addEventListener("click", function () {
         hardMode = false;
-        document.getElementById("btnEasy").style.backgroundColor = "orange";
-        document.getElementById("btnHard").style.backgroundColor = "#0DFFA2";
+        document.getElementById("btnEasy").style.transform = "rotate(-7deg)";
+        document.getElementById("btnHard").style.transform = "rotate(0)";
         console.log("Hard mode: " + hardMode);
     });
 
     btnHard.addEventListener("click", function () {
         hardMode = true;
-        document.getElementById("btnHard").style.backgroundColor = "orange";
-        document.getElementById("btnEasy").style.backgroundColor = "#0DFFA2";
+        document.getElementById("btnHard").style.transform = "rotate(7deg)";
+        document.getElementById("btnEasy").style.transform = "rotate(0)";
         console.log("Hard mode: " + hardMode);
     });
 
@@ -23,10 +23,10 @@
         themeDjungel =  false;
         themeOken = false;
         themeAkvarie = false;
-        document.getElementById("btnClassic").style.backgroundColor = "orange";
-        document.getElementById("btnDjungel").style.backgroundColor = "#FF0000";
-        document.getElementById("btnOken").style.backgroundColor = "#FF0000";
-        document.getElementById("btnAkvarie").style.backgroundColor = "#FF0000";
+        document.getElementById("btnClassic").style.backgroundColor = "#9C27B0";
+        document.getElementById("btnDjungel").style.backgroundColor = "#607D8B";
+        document.getElementById("btnOken").style.backgroundColor = "#607D8B";
+        document.getElementById("btnAkvarie").style.backgroundColor = "#607D8B";
         console.log("Classic theme: " + themeClassic);
         console.log("Djungel theme: " + themeDjungel);
         console.log("Öken theme: " + themeOken);
@@ -37,10 +37,10 @@
         themeDjungel = true;
         themeOken = false;
         themeAkvarie = false;
-        document.getElementById("btnClassic").style.backgroundColor = "#FF0000";
-        document.getElementById("btnDjungel").style.backgroundColor = "orange";
-        document.getElementById("btnOken").style.backgroundColor = "#FF0000";
-        document.getElementById("btnAkvarie").style.backgroundColor = "#FF0000";
+        document.getElementById("btnClassic").style.backgroundColor = "#607D8B";
+        document.getElementById("btnDjungel").style.backgroundColor = "#69F0AE";
+        document.getElementById("btnOken").style.backgroundColor = "#607D8B";
+        document.getElementById("btnAkvarie").style.backgroundColor = "#607D8B";
         console.log("Classic theme: " + themeClassic);
         console.log("Djungel theme: " + themeDjungel);
         console.log("Öken theme: " + themeOken);
@@ -51,10 +51,11 @@
         themeDjungel = false;
         themeOken = true;
         themeAkvarie = false;
-        document.getElementById("btnClassic").style.backgroundColor = "#FF0000";
-        document.getElementById("btnDjungel").style.backgroundColor = "#FF0000";
-        document.getElementById("btnOken").style.backgroundColor = "orange";
-        document.getElementById("btnAkvarie").style.backgroundColor = "#FF0000";
+        document.getElementById("btnClassic").style.backgroundColor = "#607D8B";
+        document.getElementById("btnDjungel").style.backgroundColor = "#607D8B";
+        document.getElementById("btnOken").style.backgroundColor = "#FFEE58";
+        document.getElementById("btnOken").style.color = "black";
+        document.getElementById("btnAkvarie").style.backgroundColor = "#607D8B";
         console.log("Classic theme: " + themeClassic);
         console.log("Djungel theme: " + themeDjungel);
         console.log("Öken theme: " + themeOken);
@@ -65,10 +66,10 @@
         themeDjungel = false;
         themeOken = false;
         themeAkvarie = true;
-        document.getElementById("btnClassic").style.backgroundColor = "#FF0000";
-        document.getElementById("btnDjungel").style.backgroundColor = "#FF0000";
-        document.getElementById("btnOken").style.backgroundColor = "#FF0000";
-        document.getElementById("btnAkvarie").style.backgroundColor = "orange";
+        document.getElementById("btnClassic").style.backgroundColor = "#607D8B";
+        document.getElementById("btnDjungel").style.backgroundColor = "#607D8B";
+        document.getElementById("btnOken").style.backgroundColor = "#607D8B";
+        document.getElementById("btnAkvarie").style.backgroundColor = "#00BCD4";
         console.log("Classic theme: " + themeClassic);
         console.log("Djungel theme: " + themeDjungel);
         console.log("Öken theme: " + themeOken);

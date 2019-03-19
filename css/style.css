@@ -35,20 +35,24 @@
         text-align: center;
         padding: 0;
     }
-    #diffList button {
-        background-color: #0DFFA2;
+
+    #btnHard {
+        background-color: #F44336;
+    }
+    #btnEasy {
+        background-color: #03A9F4;
     }
     #diffList button:hover {
         background-color: black;
     }
     #themeList button {
-        background-color: #FF0000;
+        background-color: #607D8B;
     }
     #themeList button:hover {
         background-color: black;
     }
     #startList button {
-        background-color: #E8AB0C;
+        background-color: #4CAF50;
     }
     #startList button:hover {
         background-color: black;
