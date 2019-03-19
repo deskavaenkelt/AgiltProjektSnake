@@ -27,7 +27,7 @@
 
     .hasseP p {
         font-size: 26pt;
-        font-family: "Courier New", Courier, monospace;
+        font-family: Arial;
     }
     #diffList {
         width: 650px;
@@ -102,7 +102,6 @@
         white-space: pre;
     }
 
-
     #menuList ul {
         list-style: none;
     }
@@ -118,7 +117,6 @@
     #home {
         display: none;
     }
-
      button {
       text-align: center;
       justify-content: center;
@@ -131,9 +129,6 @@
       height: 60px;
       font-size: 12pt;
       width: 120px;
-
-
-
     }
     button:hover {
       background-color: orange;
@@ -156,17 +151,28 @@
     }
 
     #gameScore{
+        font-family: Arial;
         float: right;
         text-align: left;
         display: block;
         width: 27%;
         font-size: 20px;
     }
+    .highscoreText{
+        font-size: 24px;
+        margin: 20px auto 20px auto;
+        padding: 0;
+        justify-content: center;
+        display: flex;
+    }
     #highScore{
         white-space: pre;
     }
     #allTimeHigh{
-
+        font-family: Arial;
+        display: block;
+        font-size: 28px;
+        font-weight: bold;
     }
 
 
