@@ -140,6 +140,9 @@
       height: 60px;
       font-size: 16pt;
       width: 120px;
+      cursor: pointer;
+         outline: none;
+
     }
     button:hover {
       background-color: orange;
