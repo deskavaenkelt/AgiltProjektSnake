@@ -209,17 +209,17 @@ let drawModule = (function () {
 
     //Highscorelistan med spelets fem högsta värden
     let checkHighScore = function () {
-        highScoreList.push(score);
-        highScoreList = highScoreList.sort((a, b) => b - a);
-        let newList = highScoreList.slice(0, 3);
-        let showHighScoreList = document.getElementById('highScore');
-        //showHighScoreList.innerHTML = 'Highscore: ' + newList;
-
-        showHighScoreList.textContent = newList.join('\n')
+            highScoreList.push(score);
+            highScoreList = highScoreList.sort((a, b) => b - a);
+            let newList = highScoreList.slice(0, 3);
+            let showHighScoreList = document.getElementById('highScore');
+            let scores;
+            for (let i = 1; i <= newList.length; i++) {
+                scores = [i] + " - " + newList.join('\n');
+                showHighScoreList.innerHTML = 'Din highscore\n' + scores;
+            }
 
         }
-
-     //   showHighScoreList.innerHTML = 'Highscore: ' + newList[i] + '\n';
           ;
 
     // Create food and generate random position
