@@ -83,6 +83,7 @@ let direction;
 // Hasse property's
 let snakeLength;
 let snakeSpeed; // 80, 60, 40
+let speedo = 2;
 
 
 

@@ -145,21 +145,22 @@ let drawModule = (function () {
         if(snakeX === power.x && snakeY === power.y) {
             // Get a point
             score++;
+            let newSpeedo = false;
             // Do the effect
             //snakeLength = snakeLength + 4;
 
 
             if (booleanPowerUpLength) {
+                // Length -8
                 console.log("Make Hasse shorter");
-                // Length -4
                 if (snake.length >= 11) {
                     for (let i = 0; i < 8; i++) {
                         tail = snake.pop();
                     }
                 }
             } else if (booleanPowerDownLength) {
+                // Length +16
                 console.log("Make Hasse longer");
-                // Length +4
                 for (let i = 0; i < 16; i++) {
                     tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
                     tail.x = snakeX;
@@ -173,24 +174,53 @@ let drawModule = (function () {
             } else if (booleanPowerUpSpeed) {
                 console.log("Make Hasse faster");
                 // Speed Down
-                if (snakeSpeed === 55) {
-                    snakeSpeed = 60;
-                } else {
-                    snakeSpeed = 80
+                if (speedo <= 3) {
+                    speedo++;
+                    newSpeedo = true;
                 }
+
+                /*if (snakeSpeed === 55) {
+                    snakeSpeed = 120;
+                } else {
+                    snakeSpeed = 65;
+                }*/
 
             } else {    // booleanPowerDownSpeed
                 console.log("Make Hasse slower");
                 // Speed Up
-                if (snakeSpeed === 80) {
-                    snakeSpeed = 60;
+                if (speedo > 0) {
+                    speedo--;
+                    newSpeedo = true;
+                }
+
+                /*if (snakeSpeed === 65) {
+                    snakeSpeed = 120;
                 } else {
                     snakeSpeed = 55
-                }
+                }*/
             }
-            //gameloop = setInterval(paint, snakeSpeed);
+
+            if (newSpeedo) {
+                if (speedo === 3) {
+                    setInterval(paint, 50000);
+                    console.log("Set speedo to 50000");
+                } else if (speedo === 2) {
+                    setInterval(paint, 60000);
+                    console.log("Set speedo to 50000");
+                } else if (speedo === 1) {
+                    setInterval(paint, 60000);
+                    console.log("Set speedo to 70000");
+                } else {
+                    setInterval(paint, 80000);
+                    console.log("Set speedo to 80000");
+                }
+                newSpeedo = false;
+            }
+
+
+            setInterval(paint, snakeSpeed);
             console.log("snake.length = " + snake.length);
-            console.log("snakeSpeed = " + snakeSpeed);
+            console.log("speedo = " + speedo);
 
             //Create new effect
             generateAPower();
@@ -318,22 +348,27 @@ let drawModule = (function () {
 
     // Init parameters at start
     let init = function(){
+        speedo = 2;
+        console.log("Start game!");
         direction = 'down';
         drawSnake();
         createFood();
 
         // Hard Mode = Faster game speed and generate a random power every 10 sek
         if (hardMode) {
-            snakeSpeed = 60;
+            snakeSpeed = 60;    // 60
             //generateAPower();
             setTimeout(function() {
                 generateAPower();
             }, 1000);//milliseconds
         } else {
-            snakeSpeed = 80;
+            snakeSpeed = 80;    // 80
         }
+        //console.log("before gameloop")
         gameloop = setInterval(paint, snakeSpeed);
+        //console.log("before gameloop")
         score=0;
+        //console.log("score = " + score)
     };
 
     return {
