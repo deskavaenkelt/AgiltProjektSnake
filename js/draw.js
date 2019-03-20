@@ -40,27 +40,16 @@ let drawModule = (function () {
 
     // Colors on the snake
     let bodySnake = function(x, y) {
-        //ctx.drawImage = returnSnakeColor();
         ctx.drawImage(returnSnakeColor(), x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-        //ctx.strokeStyle = 'darkgreen';
-        //ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
     };
 
     // Colors on the pizza
     let pizza = function(x, y) {
-        //ctx.fillStyle = 'yellow';
         ctx.drawImage(nutrition, x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-        //ctx.fillStyle = 'red';
-        //ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
     };
 
     // Growth of the snake
     let drawSnake = function() {
-        /*let length = 3;
-        snake = [];
-        for (let i = length-1; i>=0; i--) {
-            snake.push({x:i, y:0});
-        }*/
         snakeLength = 3;
         snake = [];
         for (let i = snakeLength-1; i>=0; i--) {
@@ -74,10 +63,7 @@ let drawModule = (function () {
     };
 
     let paint = function(){
-        //ctx.fillStyle = returnCanvasBackgroundColor();
         ctx.drawImage(returnCanvasBackgroundColor(), 0, 0, w, h);
-        //ctx.strokeStyle = 'black';
-        //ctx.strokeRect(0, 0, w, h);
         btnStart.setAttribute('disabled', true);
 
         let snakeX = snake[0].x;
@@ -140,27 +126,32 @@ let drawModule = (function () {
         // #  Hard  #
         // ##########
         if (hardMode) {
+            // Generate a random power in random place
             powerUpDown(power.x, power.y);
         }
         if(snakeX === power.x && snakeY === power.y) {
             // Get a point
             score++;
             let newSpeedo = false;
+            console.log("newSpeedo init = " + newSpeedo);
             // Do the effect
             //snakeLength = snakeLength + 4;
 
 
-            if (booleanPowerUpLength) {
+            if (booleanPowerUpLength)
+            {
                 // Length -8
-                console.log("Make Hasse shorter");
+                console.log("length--");
                 if (snake.length >= 11) {
                     for (let i = 0; i < 8; i++) {
                         tail = snake.pop();
                     }
                 }
-            } else if (booleanPowerDownLength) {
+            } // Klar
+            else if (booleanPowerDownLength)
+            {
                 // Length +16
-                console.log("Make Hasse longer");
+                console.log("length++");
                 for (let i = 0; i < 16; i++) {
                     tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
                     tail.x = snakeX;
@@ -171,55 +162,55 @@ let drawModule = (function () {
                     }
                 }
 
-            } else if (booleanPowerUpSpeed) {
-                console.log("Make Hasse faster");
+            } // Klar
+            else if (booleanPowerUpSpeed)
+            {
                 // Speed Down
-                if (speedo <= 3) {
-                    speedo++;
-                    newSpeedo = true;
-                }
-
-                /*if (snakeSpeed === 55) {
-                    snakeSpeed = 120;
-                } else {
-                    snakeSpeed = 65;
-                }*/
-
-            } else {    // booleanPowerDownSpeed
-                console.log("Make Hasse slower");
-                // Speed Up
+                console.log("speed--");
                 if (speedo > 0) {
                     speedo--;
                     newSpeedo = true;
+                    console.log("newSpeedo = " + newSpeedo);
                 }
-
-                /*if (snakeSpeed === 65) {
-                    snakeSpeed = 120;
-                } else {
-                    snakeSpeed = 55
-                }*/
             }
+            else // booleanPowerDownSpeed
+            {
+                // Speed Up
+                console.log("speed++");
+                if (speedo < 3) {
+                    speedo++;
+                    newSpeedo = true;
+                    console.log("newSpeedo = " + newSpeedo);
+                }
+            }
+            console.log("newSpeedo after if-loop= " + newSpeedo);
 
             if (newSpeedo) {
-                if (speedo === 3) {
-                    setInterval(paint, 50000);
-                    console.log("Set speedo to 50000");
-                } else if (speedo === 2) {
-                    setInterval(paint, 60000);
-                    console.log("Set speedo to 50000");
-                } else if (speedo === 1) {
-                    setInterval(paint, 60000);
-                    console.log("Set speedo to 70000");
-                } else {
-                    setInterval(paint, 80000);
-                    console.log("Set speedo to 80000");
+                console.log("New speed detected");
+                if (speedo === 3)
+                {
+                    setInterval(paint, 500);
+                    console.log("Set speedo to 500");
                 }
-                newSpeedo = false;
+                else if (speedo === 2)
+                {
+                    setInterval(paint, 900);
+                    console.log("Set speedo to 900");
+                }
+                else if (speedo === 1)
+                {
+                    setInterval(paint, 1700);
+                    console.log("Set speedo to 1700");
+                }
+                else
+                {
+                    setInterval(paint, 3000);
+                    console.log("Set speedo to 3000");
+                }
             }
 
-
-            setInterval(paint, snakeSpeed);
-            console.log("snake.length = " + snake.length);
+            //setInterval(paint, snakeSpeed);
+            //console.log("snake.length = " + snake.length);
             console.log("speedo = " + speedo);
 
             //Create new effect
@@ -337,11 +328,6 @@ let drawModule = (function () {
         if (number === 4){
             booleanPowerDownSpeed = true;
         }
-        /*console.log("booleanPowerUpLength: " + booleanPowerUpLength);
-        console.log("booleanPowerDownLength: " + booleanPowerDownLength);
-        console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
-        console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);*/
-
     };
 
     // ##########
@@ -354,21 +340,15 @@ let drawModule = (function () {
         drawSnake();
         createFood();
 
-        // Hard Mode = Faster game speed and generate a random power every 10 sek
+        // Hard Mode = Faster game speed and generate a random power
         if (hardMode) {
             snakeSpeed = 60;    // 60
-            //generateAPower();
-            setTimeout(function() {
-                generateAPower();
-            }, 1000);//milliseconds
+            generateAPower();
         } else {
             snakeSpeed = 80;    // 80
         }
-        //console.log("before gameloop")
         gameloop = setInterval(paint, snakeSpeed);
-        //console.log("before gameloop")
         score=0;
-        //console.log("score = " + score)
     };
 
     return {
@@ -380,6 +360,13 @@ let drawModule = (function () {
 
 /*
     ##### Legacy code #####
+
+    // Hard timer
+    setTimeout(function() {
+                generateAPower();
+            }, 1000);//milliseconds
+
+
 
   //Alternativ till highscorelistan som ska plocka de högsta fem värdena, fungerar ej i nuläget
   let addScore = function () {
@@ -399,7 +386,27 @@ let drawModule = (function () {
       showHighScore.innerHTML = 'Highscore: ' + storedList;
   };
 
+// Colors on the snake
+let bodySnake = function(x, y) {
+        //ctx.drawImage = returnSnakeColor();
+        ctx.drawImage(returnSnakeColor(), x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        //ctx.strokeStyle = 'darkgreen';
+        //ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+    };
 
+// Growth of the snake
+    let drawSnake = function() {
+        let length = 3;
+        snake = [];
+        for (let i = length-1; i>=0; i--) {
+            snake.push({x:i, y:0});
+        }
+    };
+
+    console.log("booleanPowerUpLength: " + booleanPowerUpLength);
+        console.log("booleanPowerDownLength: " + booleanPowerDownLength);
+        console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
+        console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
 
 
  */
