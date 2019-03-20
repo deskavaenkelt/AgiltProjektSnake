@@ -1,9 +1,10 @@
-
-    body {
+ body {
         padding: 0;
         margin: 0;
         background-image: url("../img/background/Background-Kids.jpg");
         background-size: cover;
+        width: 100%;
+        height: 855px;
         background-repeat: no-repeat;
         background-position: center center;
     }
@@ -11,10 +12,8 @@
       width: 750px;
       height: 750px;
       background-size: 750px 750px;
-      background-repeat: no-repeat;
       background-position: center center;
       padding: 0;
-      margin: 0;
       margin-left: auto;
       margin-right: auto;
     }
