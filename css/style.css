@@ -48,20 +48,32 @@
     #btnEasy {
         background-color: #03A9F4;
     }
-    #diffList button:hover {
-        background-color: black;
+    #btnEasy:hover {
+        background-color: #0288D1;
+    }
+    #btnHard:hover {
+        background-color: #D32F2F;
     }
     #themeList button {
         background-color: #607D8B;
     }
-    #themeList button:hover {
-        background-color: black;
+    #btnClassic:hover {
+     background-color: #546E7A;
+    }
+    #btnDjungel:hover {
+     background-color: #546E7A;
+    }
+    #btnOken:hover {
+     background-color: #546E7A;
+    }
+    #btnAkvarie:hover {
+     background-color: #546E7A;
     }
     #startList button {
         background-color: #4CAF50;
     }
     #startList button:hover {
-        opacity: 1.1;
+        background-color: #00E676;
     }
     #themeList{
         width: 700px;
@@ -126,7 +138,7 @@
       border-radius: 10px;
       margin: 20px 15px 60px 15px;
       height: 60px;
-      font-size: 12pt;
+      font-size: 16pt;
       width: 120px;
     }
     button:hover {
