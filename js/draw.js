@@ -133,6 +133,7 @@ let drawModule = (function () {
             powerUpDown(power.x, power.y);
         }
 
+        // Eaten a powerUp
         if(snakeX === power.x && snakeY === power.y) {
             // Get a point
             score++;
@@ -147,7 +148,9 @@ let drawModule = (function () {
                         tail = snake.pop();
                     }
                 }
-            } // Klar
+                // Add function, blink or something
+
+            }
             else if (booleanPowerDownLength)
             {
                 // Length +16
@@ -161,8 +164,9 @@ let drawModule = (function () {
                         bodySnake(snake[i].x, snake[i].y);
                     }
                 }
+                // Add function, blink or something
 
-            } // Klar
+            }
             else if (booleanPowerUpSpeed)
             {
                 // Length -16
@@ -172,6 +176,8 @@ let drawModule = (function () {
                         tail = snake.pop();
                     }
                 }
+                // Add function, blink or something
+
             }
             else // booleanPowerDownSpeed
             {
@@ -186,6 +192,8 @@ let drawModule = (function () {
                         bodySnake(snake[i].x, snake[i].y);
                     }
                 }
+                // Add function, blink or something
+                
             }
 
             //Create new effect
@@ -332,9 +340,6 @@ let drawModule = (function () {
     };
 }());
 
-    let gameloop = (function () {
-
-})();
 
 
 /*
