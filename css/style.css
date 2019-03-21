@@ -22,11 +22,16 @@
         padding: 0;
         justify-content: center;
         display: flex;
+        text-align: center;
     }
 
     .hasseP p {
         font-size: 26pt;
-        font-family: Arial;
+        padding: 0;
+        justify-content: center;
+        display: flex;
+        text-align: center;
+
     }
     #diffList {
         width: 650px;
