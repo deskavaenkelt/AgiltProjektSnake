@@ -4,9 +4,10 @@
         background-image: url("../img/background/Background-Kids.jpg");
         background-size: cover;
         width: 100%;
-        height: auto;
+        height: 900px;
         background-repeat: no-repeat;
         background-position: center center;
+
     }
     #home {
       width: 750px;
@@ -20,26 +21,23 @@
     .hasseP {
         margin: 20px auto 20px auto;
         padding: 0;
-        justify-content: center;
         display: flex;
-        text-align: center;
-        font-size: 26pt;
+
     }
     #picHasse{
         position: absolute;
         width: 296px;
         height: auto;
+        margin: 40px 0px 40px 40px;
         display: flex;
-        margin: 40px;
-        margin-right: 20px;
-        justify-content: left;
+        padding-left: 120px;
     }
     #hasse{
-        position: relative;
+        padding-left: 230px;
+        font-size: 28pt;
     }
 
     #diffList {
-
         width: 650px;
         margin: 100px auto 20px auto;
         height: 100px;
@@ -106,7 +104,6 @@
     }
 
     #highscoreList {
-        opacity: 0.5;
         width: 200px;
         margin: auto;
         height: 180px;
