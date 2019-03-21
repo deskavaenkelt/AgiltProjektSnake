@@ -36,7 +36,7 @@ let booleanPowerUpSpeed;
 let booleanPowerDownSpeed;
 
 let drawModule = (function () {
-    let gameloop;
+    //let gameloop;
 
     // Colors on the snake
     let bodySnake = function(x, y) {
@@ -63,6 +63,8 @@ let drawModule = (function () {
     };
 
     let paint = function(){
+
+
         ctx.drawImage(returnCanvasBackgroundColor(), 0, 0, w, h);
         btnStart.setAttribute('disabled', true);
 
@@ -129,19 +131,16 @@ let drawModule = (function () {
             // Generate a random power in random place
             powerUpDown(power.x, power.y);
         }
+
         if(snakeX === power.x && snakeY === power.y) {
             // Get a point
             score++;
-            let newSpeedo = false;
-            console.log("newSpeedo init = " + newSpeedo);
+
             // Do the effect
-            //snakeLength = snakeLength + 4;
-
-
             if (booleanPowerUpLength)
             {
                 // Length -8
-                console.log("length--");
+                console.log("length-8");
                 if (snake.length >= 11) {
                     for (let i = 0; i < 8; i++) {
                         tail = snake.pop();
@@ -151,7 +150,7 @@ let drawModule = (function () {
             else if (booleanPowerDownLength)
             {
                 // Length +16
-                console.log("length++");
+                console.log("length+16");
                 for (let i = 0; i < 16; i++) {
                     tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
                     tail.x = snakeX;
@@ -165,53 +164,28 @@ let drawModule = (function () {
             } // Klar
             else if (booleanPowerUpSpeed)
             {
-                // Speed Down
-                console.log("speed--");
-                if (speedo > 0) {
-                    speedo--;
-                    newSpeedo = true;
-                    console.log("newSpeedo = " + newSpeedo);
+                // Length -16
+                console.log("length-16");
+                if (snake.length >= 19) {
+                    for (let i = 0; i < 8; i++) {
+                        tail = snake.pop();
+                    }
                 }
             }
             else // booleanPowerDownSpeed
             {
-                // Speed Up
-                console.log("speed++");
-                if (speedo < 3) {
-                    speedo++;
-                    newSpeedo = true;
-                    console.log("newSpeedo = " + newSpeedo);
+                // Length +32
+                console.log("length+32");
+                for (let i = 0; i < 32; i++) {
+                    tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
+                    tail.x = snakeX;
+                    tail.y = snakeY;
+                    snake.unshift(tail); //puts back the tail as the first cell
+                    for(let i = 0; i < snake.length; i++) {
+                        bodySnake(snake[i].x, snake[i].y);
+                    }
                 }
             }
-            console.log("newSpeedo after if-loop= " + newSpeedo);
-
-            if (newSpeedo) {
-                console.log("New speed detected");
-                if (speedo === 3)
-                {
-                    setInterval(paint, 500);
-                    console.log("Set speedo to 500");
-                }
-                else if (speedo === 2)
-                {
-                    setInterval(paint, 900);
-                    console.log("Set speedo to 900");
-                }
-                else if (speedo === 1)
-                {
-                    setInterval(paint, 1700);
-                    console.log("Set speedo to 1700");
-                }
-                else
-                {
-                    setInterval(paint, 3000);
-                    console.log("Set speedo to 3000");
-                }
-            }
-
-            //setInterval(paint, snakeSpeed);
-            //console.log("snake.length = " + snake.length);
-            console.log("speedo = " + speedo);
 
             //Create new effect
             generateAPower();
@@ -221,6 +195,8 @@ let drawModule = (function () {
 
     //AllTimeHigh, plockar  det högsta värdet
     let addHighScore = function () {
+
+        console.log("addHighScore loop");
         highScore = Math.max(score, highScore);
         localStorage.setItem(localStorageName, highScore);
         let showHighScore = document.getElementById('allTimeHigh');
@@ -332,7 +308,7 @@ let drawModule = (function () {
 
     // Init parameters at start
     let init = function(){
-
+        console.log("init loop");
         speedo = 2;
         console.log("Start game!");
         direction = 'down';
@@ -410,5 +386,62 @@ let bodySnake = function(x, y) {
         console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
         console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
 
+
+
+SpeedO problem
+===========================
+
+else if (booleanPowerUpSpeed)
+            {
+                // Speed Down
+                console.log("speed--");
+                if (speedo > 0) {
+                    speedo--;
+                    newSpeedo = true;
+                    console.log("newSpeedo = " + newSpeedo);
+                }
+            }
+            else // booleanPowerDownSpeed
+            {
+                // Speed Up
+                console.log("speed++");
+                if (speedo < 3) {
+                    speedo++;
+                    newSpeedo = true;
+                    console.log("newSpeedo = " + newSpeedo);
+                }
+            }
+
+let newSpeedo = false;
+            console.log("newSpeedo init = " + newSpeedo);
+
+console.log("newSpeedo after if-loop= " + newSpeedo);
+if (newSpeedo) {
+                console.log("New speed detected");
+                if (speedo === 3)
+                {
+                    setInterval(paint, 500);
+                    console.log("Set speedo to 500");
+                }
+                else if (speedo === 2)
+                {
+                    setInterval(paint, 900);
+                    console.log("Set speedo to 900");
+                }
+                else if (speedo === 1)
+                {
+                    setInterval(paint, 1700);
+                    console.log("Set speedo to 1700");
+                }
+                else
+                {
+                    setInterval(paint, 3000);
+                    console.log("Set speedo to 3000");
+                }
+            }
+
+            //setInterval(paint, snakeSpeed);
+            //console.log("snake.length = " + snake.length);
+            console.log("speedo = " + speedo);
 
  */
