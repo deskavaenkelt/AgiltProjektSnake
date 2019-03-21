@@ -326,10 +326,10 @@ let drawModule = (function () {
 
         // Hard Mode = Faster game speed and generate a random power
         if (hardMode) {
-            snakeSpeed = 8000;    // 60
+            snakeSpeed = 80;    // 60
             generateAPower();
         } else {
-            snakeSpeed = 10000;    // 80
+            snakeSpeed = 100;    // 80
         }
         gameloop = setInterval(paint, snakeSpeed);
         score=0;
