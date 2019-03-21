@@ -20,6 +20,7 @@ let btnOken = document.getElementById('btnOken');
 let btnAkvarie = document.getElementById('btnAkvarie');
 let btnStart = document.getElementById('btnStart');
 
+
 btnClassic.disabled = true;
 btnDjungel.disabled = true;
 btnOken.disabled = true;

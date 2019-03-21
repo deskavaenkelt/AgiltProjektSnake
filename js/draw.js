@@ -122,6 +122,7 @@ let drawModule = (function () {
         pizza(food.x, food.y);
         scoreText();
 
+
         // ##########
         // #  Hard  #
         // ##########
