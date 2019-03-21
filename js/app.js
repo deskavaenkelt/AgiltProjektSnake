@@ -283,32 +283,3 @@
 
 
 })(window, document, drawModule);
-
-
-
-/*
-    ##### Legacy Code #####
-    //btnStart.addEventListener("click", function(){ drawModule.init();});
-// Button position and dimensions
- /*   let buttonX = 300;
-    let buttonY = 375;
-    let buttonW = 60;
-    let buttonH = 30;
-
-// Render button
-    ctx.fillStyle = 'red';
-    ctx.fillRect(buttonX, buttonY, buttonW, buttonH);
-
-    // Control that click event occurred within position of button
-    // NOTE: This assumes canvas is positioned at top left corner
-    if (
-        event.x > buttonX &&
-        event.x < buttonX + buttonW &&
-        event.y > buttonY &&
-        event.y < buttonY + buttonH
-    ) {
-        // Executes if button was clicked!
-
-
-    }
-    */

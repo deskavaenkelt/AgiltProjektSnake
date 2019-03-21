@@ -193,7 +193,7 @@ let drawModule = (function () {
                     }
                 }
                 // Add function, blink or something
-                
+
             }
 
             //Create new effect
@@ -229,8 +229,8 @@ let drawModule = (function () {
     // Create food and generate random position
     let createFood = function() {
         food = {
-            x: Math.floor((Math.random() * 49) + 1),
-            y: Math.floor((Math.random() * 49) + 1)
+            x: Math.floor((Math.random() * 24) + 1),
+            y: Math.floor((Math.random() * 24) + 1)
         };
 
         for (let i=0; i>snake.length; i++) {
@@ -238,8 +238,8 @@ let drawModule = (function () {
             let snakeY = snake[i].y;
 
             if (food.x===snakeX && food.y === snakeY || food.y === snakeY && food.x===snakeX) {
-                food.x = Math.floor((Math.random() * 49) + 1);
-                food.y = Math.floor((Math.random() * 49) + 1);
+                food.x = Math.floor((Math.random() * 24) + 1);
+                food.y = Math.floor((Math.random() * 24) + 1);
             }
         }
     };
@@ -269,8 +269,8 @@ let drawModule = (function () {
     // Generate the position
     let generatePowerPosition = function() {
         power = {
-            x: Math.floor((Math.random() * 49) + 1),
-            y: Math.floor((Math.random() * 49) + 1)
+            x: Math.floor((Math.random() * 24) + 1),
+            y: Math.floor((Math.random() * 24) + 1)
         };
 
         for (let i = 0; i > snake.length; i++) {
@@ -281,8 +281,8 @@ let drawModule = (function () {
             if (power.x === snakeX && power.y === snakeY || power.y === snakeY && power.x === snakeX ||
                 power.x === food.x && power.y === food.y || power.y === food.y && power.x === food.x)
             {
-                power.x = Math.floor((Math.random() * 49) + 1);
-                power.y = Math.floor((Math.random() * 49) + 1);
+                power.x = Math.floor((Math.random() * 24) + 1);
+                power.y = Math.floor((Math.random() * 24) + 1);
             }
         }
     };
@@ -326,10 +326,10 @@ let drawModule = (function () {
 
         // Hard Mode = Faster game speed and generate a random power
         if (hardMode) {
-            snakeSpeed = 60;    // 60
+            snakeSpeed = 8000;    // 60
             generateAPower();
         } else {
-            snakeSpeed = 80;    // 80
+            snakeSpeed = 10000;    // 80
         }
         gameloop = setInterval(paint, snakeSpeed);
         score=0;
@@ -339,115 +339,3 @@ let drawModule = (function () {
         init : init,
     };
 }());
-
-
-
-/*
-    ##### Legacy code #####
-
-    // Hard timer
-    setTimeout(function() {
-                generateAPower();
-            }, 1000);//milliseconds
-
-
-
-  //Alternativ till highscorelistan som ska plocka de högsta fem värdena, fungerar ej i nuläget
-  let addScore = function () {
-      highScore.push(score);
-
-      highScore.sort(function (a, bt) {return a -b});
-      highScore.slice(0, 5);
-
-
-
-
-      let storedList = localStorage.getItem("highScore");
-      if(storedList){
-          highScore = JSON.parse(storedList);
-      }
-      let showHighScore = document.getElementById('highscore');
-      showHighScore.innerHTML = 'Highscore: ' + storedList;
-  };
-
-// Colors on the snake
-let bodySnake = function(x, y) {
-        //ctx.drawImage = returnSnakeColor();
-        ctx.drawImage(returnSnakeColor(), x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-        //ctx.strokeStyle = 'darkgreen';
-        //ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
-    };
-
-// Growth of the snake
-    let drawSnake = function() {
-        let length = 3;
-        snake = [];
-        for (let i = length-1; i>=0; i--) {
-            snake.push({x:i, y:0});
-        }
-    };
-
-    console.log("booleanPowerUpLength: " + booleanPowerUpLength);
-        console.log("booleanPowerDownLength: " + booleanPowerDownLength);
-        console.log("booleanPowerUpSpeed: " + booleanPowerUpSpeed);
-        console.log("booleanPowerDownSpeed: " + booleanPowerDownSpeed);
-
-
-
-SpeedO problem
-===========================
-
-else if (booleanPowerUpSpeed)
-            {
-                // Speed Down
-                console.log("speed--");
-                if (speedo > 0) {
-                    speedo--;
-                    newSpeedo = true;
-                    console.log("newSpeedo = " + newSpeedo);
-                }
-            }
-            else // booleanPowerDownSpeed
-            {
-                // Speed Up
-                console.log("speed++");
-                if (speedo < 3) {
-                    speedo++;
-                    newSpeedo = true;
-                    console.log("newSpeedo = " + newSpeedo);
-                }
-            }
-
-let newSpeedo = false;
-            console.log("newSpeedo init = " + newSpeedo);
-
-console.log("newSpeedo after if-loop= " + newSpeedo);
-if (newSpeedo) {
-                console.log("New speed detected");
-                if (speedo === 3)
-                {
-                    setInterval(paint, 500);
-                    console.log("Set speedo to 500");
-                }
-                else if (speedo === 2)
-                {
-                    setInterval(paint, 900);
-                    console.log("Set speedo to 900");
-                }
-                else if (speedo === 1)
-                {
-                    setInterval(paint, 1700);
-                    console.log("Set speedo to 1700");
-                }
-                else
-                {
-                    setInterval(paint, 3000);
-                    console.log("Set speedo to 3000");
-                }
-            }
-
-            //setInterval(paint, snakeSpeed);
-            //console.log("snake.length = " + snake.length);
-            console.log("speedo = " + speedo);
-
- */

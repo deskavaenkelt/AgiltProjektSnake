@@ -1,7 +1,7 @@
 // Canvas
 let mycanvas = document.getElementById('mycanvas');
 let ctx = mycanvas.getContext('2d');
-let snakeSize = 15;
+let snakeSize = 30;
 let w = 750;
 let h = 750;
 
@@ -86,12 +86,4 @@ let snakeLength;
 let snakeSpeed; // 80, 60, 40
 let speedo = 2;
 
-
-
-
 let power;
-
-// Legacy ?
-
-//ctx.button = '50px Courier New'
-//let startstart = ctx.button('Start', 300, 375);
