@@ -236,12 +236,10 @@ let drawModule = (function () {
             let showHighScoreList = document.getElementById('highScore');
             let scores;
             for (let i = 1; i <= newList.length; i++) {
-                scores = [i] + " - " + newList.join('\n');
-                showHighScoreList.innerHTML = 'Din highscore\n' + scores;
+                scores = '<ol><li>' + newList.join('</li><li>') + '</li></ol>';
             }
-
-        }
-          ;
+        showHighScoreList.innerHTML = 'Din highscore:\n' + scores;
+        };
 
     // Create food and generate random position
     let createFood = function() {
