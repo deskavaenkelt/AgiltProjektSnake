@@ -23,6 +23,7 @@
         justify-content: center;
         display: flex;
         text-align: center;
+        font-size: 26pt;
     }
     #picHasse{
         position: absolute;
