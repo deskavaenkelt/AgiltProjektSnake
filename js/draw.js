@@ -332,6 +332,7 @@ let drawModule = (function () {
 
     // Init parameters at start
     let init = function(){
+
         speedo = 2;
         console.log("Start game!");
         direction = 'down';
@@ -354,6 +355,9 @@ let drawModule = (function () {
     };
 }());
 
+    let gameloop = (function () {
+
+})();
 
 
 /*

@@ -8,7 +8,7 @@
         btnEasy.style.transition = "transform .8s";
         btnEasy.style.transform = "rotate(+360deg)";
         btnEasy.style.boxShadow = "0 12px 15px rgba(0, 0, 0, 0.1)";
-        btnEasy.style.border = "3px solid #607D8B";
+        btnEasy.style.border = "2px solid #607D8B";
         btnHard.style.boxShadow = "none";
         btnHard.style.border = "none";
 
@@ -66,7 +66,7 @@
         btnHard.style.boxShadow = "0px 12px 15px rgba(0, 0, 0, 0.1)";
         btnEasy.style.boxShadow = "none";
 
-        btnHard.style.border = "3px solid #607D8B";
+        btnHard.style.border = "2px solid #607D8B";
         btnEasy.style.border = "none";
 
 
