@@ -1,7 +1,7 @@
 
 (function (window, document, drawModule) {
 
-    // Listen after Easy or Hard Mode
+    // Listen after Easy Mode
     btnEasy.addEventListener("click", function () {
         hardMode = false;
 
@@ -37,6 +37,7 @@
         console.log("Hard mode: " + hardMode);
     });
 
+    //Listen for Hard Mode
     btnHard.addEventListener("click", function () {
         btnClassic.disabled = false;
         btnDjungel.disabled = false;
@@ -78,7 +79,7 @@
     });
 
 
-    // Listen after chosen Theme
+    // Listen for chosen Theme
     btnClassic.addEventListener("click", function () {
         themeClassic = true;
         themeDjungel =  false;
@@ -227,10 +228,16 @@
     });
 
 
-    let btnStart = document.getElementById('btnStart'); // Går ej flytta på?
+    let btnStart = document.getElementById('btnStart');
     btnStart.addEventListener("click", function () {
         btnStart.style.transition = "transform .8s";
         btnStart.style.transform = "rotate(360deg)";
+        var hideFullscreen = document.getElementById('btnFullscreen');
+        if(hideFullscreen.style.display== 'block'){
+            hideFullscreen.style.display = 'none';
+        }else{
+            hideFullscreen.style.display= 'block';
+        }
         drawModule.init();
         showGame();
 

@@ -21,22 +21,20 @@ let btnAkvarie = document.getElementById('btnAkvarie');
 let btnStart = document.getElementById('btnStart');
 
 
+
+
 btnClassic.disabled = true;
 btnDjungel.disabled = true;
 btnOken.disabled = true;
 btnAkvarie.disabled = true;
 btnStart.disabled = true;
 
+
 btnClassic.style.opacity = '0.1';
 btnDjungel.style.opacity = '0.1';
 btnOken.style.opacity = '0.1';
 btnAkvarie.style.opacity = '0.1';
 btnStart.style.opacity = '0.1';
-
-
-
-
-
 
 // Theme
 let themeClassic = true;

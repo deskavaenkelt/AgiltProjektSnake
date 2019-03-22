@@ -170,6 +170,7 @@
         padding-right: 20px;
         width: 130px;
         position: fixed;
+        display: block;
     }
     p {
         font-family: Helvetica, serif;

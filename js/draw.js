@@ -36,6 +36,7 @@ let booleanPowerUpSpeed;
 let booleanPowerDownSpeed;
 
 
+
 let drawModule = (function () {
     //let gameloop;
 
@@ -59,6 +60,7 @@ let drawModule = (function () {
     };
 
 
+    //Score shown in the upper right corner
     let scoreText = function () {
         let showScore = document.getElementById('gameScore');
         showScore.innerHTML = "Poäng: " + score;
@@ -70,6 +72,7 @@ let drawModule = (function () {
 
         ctx.drawImage(returnCanvasBackgroundColor(), 0, 0, w, h);
         btnStart.setAttribute('disabled', true);
+
 
         let snakeX = snake[0].x;
         let snakeY = snake[0].y;
@@ -92,9 +95,13 @@ let drawModule = (function () {
         }
 
 
+        //If snake collides
         if (snakeX === -1 || snakeX === w/snakeSize || snakeY === -1 || snakeY === h/snakeSize || checkCollision(snakeX, snakeY, snake)) {
             showMenu();
             btnStart.removeAttribute('disabled', false);
+            var hideFullscreen = document.getElementById('btnFullscreen');
+                hideFullscreen.style.display= 'block';
+
 
             //restart game
             highScore = localStorage.getItem(localStorageName) == null ? 0 : localStorage.getItem(localStorageName);
@@ -206,7 +213,7 @@ let drawModule = (function () {
     };
 
 
-    //AllTimeHigh, plockar  det högsta värdet
+    //AllTimeHigh, shows the highest score ever played on the computer
     let addHighScore = function () {
 
         console.log("addHighScore loop");
@@ -217,7 +224,7 @@ let drawModule = (function () {
         checkHighScore();
     };
 
-    //Highscorelistan med spelets fem högsta värden
+    //Highscorelist, displays top 3 scores
     let checkHighScore = function () {
             highScoreList.push(score);
             highScoreList = highScoreList.sort((a, b) => b - a);
