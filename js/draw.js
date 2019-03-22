@@ -35,6 +35,7 @@ let booleanPowerDownLength;
 let booleanPowerUpSpeed;
 let booleanPowerDownSpeed;
 
+
 let drawModule = (function () {
     //let gameloop;
 
@@ -57,10 +58,12 @@ let drawModule = (function () {
         }
     };
 
+
     let scoreText = function () {
         let showScore = document.getElementById('gameScore');
         showScore.innerHTML = "Poäng: " + score;
     };
+
 
     let paint = function(){
 
@@ -123,6 +126,7 @@ let drawModule = (function () {
 
         pizza(food.x, food.y);
         scoreText();
+
 
 
         // ##########
@@ -209,7 +213,7 @@ let drawModule = (function () {
         highScore = Math.max(score, highScore);
         localStorage.setItem(localStorageName, highScore);
         let showHighScore = document.getElementById('allTimeHigh');
-        showHighScore.innerHTML = 'All time high: ' + highScore;
+        showHighScore.innerHTML = 'Rekord: ' + highScore;
         checkHighScore();
     };
 
