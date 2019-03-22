@@ -22,7 +22,6 @@ let btnStart = document.getElementById('btnStart');
 
 
 
-
 btnClassic.disabled = true;
 btnDjungel.disabled = true;
 btnOken.disabled = true;
