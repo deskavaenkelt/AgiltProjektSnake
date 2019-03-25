@@ -63,6 +63,7 @@ let drawModule = (function () {
     //Score shown in the upper right corner
     let scoreText = function () {
         let showScore = document.getElementById('gameScore');
+        showScore.style.display='block';
         showScore.innerHTML = "Poäng: " + score;
     };
 
@@ -101,6 +102,8 @@ let drawModule = (function () {
             btnStart.removeAttribute('disabled', false);
             let hideFullscreen = document.getElementById('btnFullscreen');
                 hideFullscreen.style.display= 'block';
+            let hideScore = document.getElementById('gameScore');
+            hideScore.style.display= 'none';
 
 
 
@@ -336,7 +339,8 @@ let drawModule = (function () {
         drawSnake();
         createFood();
 
-        // Hard Mode = Faster game speed and generate a random power
+
+        // Hard Mode = Generate a random power
         if (hardMode) {
             snakeSpeed = 80;    // 60
             generateAPower();

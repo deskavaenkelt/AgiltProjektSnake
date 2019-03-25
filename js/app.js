@@ -1,7 +1,7 @@
 
 (function (window, document, drawModule) {
 
-    // Listen after Easy Mode
+    // Listen for Easy Mode
     btnEasy.addEventListener("click", function () {
         hardMode = false;
 
@@ -70,16 +70,12 @@
         btnHard.style.border = "2px solid #607D8B";
         btnEasy.style.border = "none";
 
-
-        /*  if (hardMode) {
-              btnEasy.style.transform = "rotate(0)";
-          }
-          */
         console.log("Hard mode: " + hardMode);
     });
 
 
     // Listen for chosen Theme
+    //Classic theme
     btnClassic.addEventListener("click", function () {
         themeClassic = true;
         themeDjungel =  false;
@@ -118,6 +114,8 @@
         console.log("Öken theme: " + themeOken);
         console.log("Akvarie theme: " + themeAkvarie);
     });
+
+    //Jungle theme
     btnDjungel.addEventListener("click", function () {
         themeClassic = false;
         themeDjungel = true;
@@ -154,6 +152,8 @@
         console.log("Öken theme: " + themeOken);
         console.log("Akvarie theme: " + themeAkvarie);
     });
+
+    //Desert theme
     btnOken.addEventListener("click", function () {
         themeClassic = false;
         themeDjungel = false;
@@ -190,6 +190,8 @@
         console.log("Öken theme: " + themeOken);
         console.log("Akvarie theme: " + themeAkvarie);
     });
+
+    //Aquarium theme
     btnAkvarie.addEventListener("click", function () {
         themeClassic = false;
         themeDjungel = false;
@@ -228,6 +230,7 @@
     });
 
 
+    //Start button, starts the game
     let btnStart = document.getElementById('btnStart');
     btnStart.addEventListener("click", function () {
         btnStart.style.transition = "transform .8s";
@@ -235,29 +238,29 @@
 
         drawModule.init();
         showGame();
-        let hideFullscreen = document.getElementById('btnFullscreen');
-
-       if(hideFullscreen.style.display === 'block'){
-            hideFullscreen.style.display = 'none';
-        }else{
-            hideFullscreen.style.display= 'block';
-        }
-
 
     });
 
+    //Displays the game and hides the menu and the fullscreen button
     let menu = document.getElementById("menuList");
     let game = document.getElementById("home");
+    let hideFullscreen = document.getElementById('btnFullscreen');
+
 
     function showGame() {
         game.style.display = 'block';
         menu.style.display = 'none';
+        if(hideFullscreen.style.display === 'block'){
+            hideFullscreen.style.display = 'none';
+        }else{
+            hideFullscreen.style.display= 'block';
+        }
     }
 
+    //The control of the arrow keyes, prevents snake from moving in opposite direction
     document.onkeydown = function (/*event*/) {
 
         keyCode = window.event.keyCode;
-        //keyCode = event.keyCode;
 
         switch (keyCode) {
 

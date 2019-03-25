@@ -186,11 +186,12 @@
 
     #gameScore{
         font-family: Arial;
+        margin: 80px 0px 50px 0px;
         float: right;
         text-align: left;
         display: block;
         width: 27%;
-        font-size: 20px;
+        font-size: 24px;
     }
     #highScore{
         white-space: pre;

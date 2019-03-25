@@ -6,13 +6,11 @@ let w = 750;
 let h = 750;
 
 
-
 // Buttons
-// Mode
-let highscoreList = document.getElementById('highscoreList');
 let btnEasy = document.getElementById('btnEasy');
 let btnHard = document.getElementById('btnHard');
-//let btnClassic = document.getElementById("btnClassic").disabled = true;  WHY?
+
+
 // Theme buttons
 let btnClassic = document.getElementById('btnClassic');
 let btnDjungel = document.getElementById('btnDjungel');
@@ -21,21 +19,21 @@ let btnAkvarie = document.getElementById('btnAkvarie');
 let btnStart = document.getElementById('btnStart');
 
 
-
+//makes buttons unclickable until hard or easy is chosen
 btnClassic.disabled = true;
 btnDjungel.disabled = true;
 btnOken.disabled = true;
 btnAkvarie.disabled = true;
 btnStart.disabled = true;
 
-
+//visably shows that buttons are not clickable
 btnClassic.style.opacity = '0.1';
 btnDjungel.style.opacity = '0.1';
 btnOken.style.opacity = '0.1';
 btnAkvarie.style.opacity = '0.1';
 btnStart.style.opacity = '0.1';
 
-// Theme
+// Returns the chosen theme
 let themeClassic = true;
 let themeDjungel;
 let themeOken;
@@ -51,6 +49,8 @@ let returnCanvasBackgroundColor = (function () {
         return aquarium
     }
 });
+
+//Returns the snake color depending on the chosen theme
 let returnSnakeColor = (function () {
     if (themeClassic) {
         return classicSprite
@@ -64,7 +64,7 @@ let returnSnakeColor = (function () {
 });
 
 
-// HighScore
+// HighScore variables
 let score = 0;
 let highScore;
 let highScoreList= [];
@@ -78,7 +78,7 @@ let food;
 let direction;
 
 
-// Hasse properties
+// Snake properties
 let snakeLength;
 let snakeSpeed; // 80, 60, 40
 let speedo = 2;
