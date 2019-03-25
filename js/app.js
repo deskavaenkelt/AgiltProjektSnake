@@ -247,15 +247,20 @@
     let hideFullscreen = document.getElementById('btnFullscreen');
 
 
+
     function showGame() {
         game.style.display = 'block';
         menu.style.display = 'none';
+        hideFullscreen.style.display = 'none';
+        /*
         if(hideFullscreen.style.display === 'block'){
             hideFullscreen.style.display = 'none';
         }else{
             hideFullscreen.style.display= 'block';
         }
+        */
     }
+
 
     //The control of the arrow keyes, prevents snake from moving in opposite direction
     document.onkeydown = function (/*event*/) {
