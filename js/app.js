@@ -229,10 +229,6 @@
 
 
     let btnStart = document.getElementById('btnStart');
-    let scoreText = function () {
-        let showScore = document.getElementById('gameScore');
-        showScore.innerHTML = "Poäng: " + score;
-    };
     btnStart.addEventListener("click", function () {
         btnStart.style.transition = "transform .8s";
         btnStart.style.transform = "rotate(360deg)";
@@ -240,16 +236,13 @@
         drawModule.init();
         showGame();
         let hideFullscreen = document.getElementById('btnFullscreen');
-        hideFullscreen.style.display ='none';
-        scoreText.style.display = 'block';
 
-        //tror inte vi behöver if
-        /* if(hideFullscreen.style.display === 'block'){
+       if(hideFullscreen.style.display === 'block'){
             hideFullscreen.style.display = 'none';
         }else{
             hideFullscreen.style.display= 'block';
         }
-        */
+
 
     });
 
