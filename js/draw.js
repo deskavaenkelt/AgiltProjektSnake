@@ -26,6 +26,10 @@ aquarium.src = "img/background/aquarium.jpg";
 let powerUpDownImg = new Image();
 powerUpDownImg.src = "img/powerUpDown.png";
 
+//PowerUpText
+let powerUpText = document.getElementById('powerUpText');
+
+
 
 let tail;
 
@@ -106,8 +110,8 @@ let drawModule = (function () {
             hideScore.style.display= 'none';
 
 
-
             //restart game
+            powerUpText.style.display = 'none';
             highScore = localStorage.getItem(localStorageName) == null ? 0 : localStorage.getItem(localStorageName);
             addHighScore();
             btnStart.removeAttribute('disabled', true);
@@ -156,7 +160,8 @@ let drawModule = (function () {
             // Do the effect
             if (booleanPowerUpLength)
             {
-                // Length -8
+                powerUpText.style.display='block';
+                powerUpText.innerHTML = "length-8";
                 console.log("length-8");
                 if (snake.length >= 11) {
                     for (let i = 0; i < 8; i++) {
@@ -169,6 +174,8 @@ let drawModule = (function () {
             else if (booleanPowerDownLength)
             {
                 // Length +16
+                powerUpText.style.display='block';
+                powerUpText.innerHTML = "length +16";
                 console.log("length+16");
                 for (let i = 0; i < 16; i++) {
                     tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
@@ -185,6 +192,8 @@ let drawModule = (function () {
             else if (booleanPowerUpSpeed)
             {
                 // Length -16
+                powerUpText.style.display='block';
+                powerUpText.innerHTML = "length -16";
                 console.log("length-16");
                 if (snake.length >= 19) {
                     for (let i = 0; i < 8; i++) {
@@ -197,6 +206,8 @@ let drawModule = (function () {
             else // booleanPowerDownSpeed
             {
                 // Length +32
+                powerUpText.style.display='block';
+                powerUpText.innerHTML = "length +32";
                 console.log("length+32");
                 for (let i = 0; i < 32; i++) {
                     tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
