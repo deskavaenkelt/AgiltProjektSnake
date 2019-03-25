@@ -101,7 +101,6 @@ let drawModule = (function () {
             btnStart.removeAttribute('disabled', false);
             let hideFullscreen = document.getElementById('btnFullscreen');
                 hideFullscreen.style.display= 'block';
-            scoreText.style.display = 'none';
 
 
 
@@ -305,7 +304,7 @@ let drawModule = (function () {
         let number = (Math.floor(Math.random() * 4) + 1);
         //console.log("random number: " + number);
 
-        // Set everyting to false
+        // Set everything to false
         booleanPowerUpLength = false;
         booleanPowerDownLength = false;
         booleanPowerUpSpeed = false;
