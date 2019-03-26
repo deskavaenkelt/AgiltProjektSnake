@@ -94,9 +94,11 @@ let drawModule = (function () {
 
         let menu = document.getElementById("menuList");
         let game = document.getElementById("home");
+        let tutorial = document.getElementById("tutorial");
         function showMenu(){
             game.style.display = 'none';
             menu.style.display = 'block';
+            tutorial.style.display = 'block';
         }
 
 

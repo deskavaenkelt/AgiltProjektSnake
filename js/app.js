@@ -244,6 +244,7 @@
     //Displays the game and hides the menu and the fullscreen button
     let menu = document.getElementById("menuList");
     let game = document.getElementById("home");
+    let tutorial = document.getElementById("tutorial");
     let hideFullscreen = document.getElementById('btnFullscreen');
 
 
@@ -251,6 +252,7 @@
     function showGame() {
         game.style.display = 'block';
         menu.style.display = 'none';
+        tutorial.style.display = 'none';
         hideFullscreen.style.display = 'none';
         /*
         if(hideFullscreen.style.display === 'block'){

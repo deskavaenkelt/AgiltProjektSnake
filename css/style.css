@@ -235,6 +235,7 @@ p {
 }
 
 #tutorial {
+    display: block;
     margin-top: -4%;
     float: left;
     padding-left: 20px;
