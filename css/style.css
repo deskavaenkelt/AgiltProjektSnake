@@ -11,8 +11,7 @@ body {
 }
 
 #mycanvas {
-        margin: 50px;
-        z-index: 5;
+    margin-top: 100px;
 }
 
 #home {
@@ -188,7 +187,7 @@ p {
 
 #gameScore {
     font-family: Arial;
-    margin: 80px 0px 50px 0px;
+    margin: 120px 0px 50px 0px;
     float: right;
     text-align: left;
     display: block;
@@ -197,12 +196,10 @@ p {
 }
 
 #powerUpText {
-    margin: 80px 0 50px 10px;
-    float: right;
-    text-align: left;
+   margin: 120px 80px 80px 430px;
     display: block;
-    width: 27%;
     font-size: 24px;
+    position: absolute;
 }
 
 #highScore {
@@ -241,8 +238,10 @@ p {
     margin-top: -4%;
     float: left;
     padding-left: 20px;
+    font-family: Arial;
 }
 
 #tutorial img {
     width: 225px;
+
 }
