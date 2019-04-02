@@ -42,7 +42,6 @@ let booleanPowerDownSpeed;
 
 
 let drawModule = (function () {
-    //let gameloop;
 
     // Colors on the snake
     let bodySnake = function(x, y) {
@@ -63,7 +62,6 @@ let drawModule = (function () {
         }
     };
 
-
     //Score shown in the upper right corner
     let scoreText = function () {
         let showScore = document.getElementById('gameScore');
@@ -74,10 +72,8 @@ let drawModule = (function () {
 
     let paint = function(){
 
-
         ctx.drawImage(returnCanvasBackgroundColor(), 0, 0, w, h);
         btnStart.setAttribute('disabled', true);
-
 
         let snakeX = snake[0].x;
         let snakeY = snake[0].y;
@@ -145,7 +141,6 @@ let drawModule = (function () {
         scoreText();
 
 
-
         // ##########
         // #  Hard  #
         // ##########
@@ -170,8 +165,6 @@ let drawModule = (function () {
                         tail = snake.pop();
                     }
                 }
-                // Add function, blink or something
-
             }
             else if (booleanPowerDownLength)
             {
@@ -188,8 +181,6 @@ let drawModule = (function () {
                         bodySnake(snake[i].x, snake[i].y);
                     }
                 }
-                // Add function, blink or something
-
             }
             else if (booleanPowerUpSpeed)
             {
@@ -202,8 +193,6 @@ let drawModule = (function () {
                         tail = snake.pop();
                     }
                 }
-                // Add function, blink or something
-
             }
             else // booleanPowerDownSpeed
             {
@@ -220,10 +209,7 @@ let drawModule = (function () {
                         bodySnake(snake[i].x, snake[i].y);
                     }
                 }
-                // Add function, blink or something
-
             }
-
             //Create new effect
             generateAPower();
         }
@@ -341,8 +327,6 @@ let drawModule = (function () {
         }
     };
 
-    // ##########
-
     // Init parameters at start
     let init = function(){
         console.log("init loop");
@@ -355,10 +339,10 @@ let drawModule = (function () {
 
         // Hard Mode = Generate a random power
         if (hardMode) {
-            snakeSpeed = 80;    // 60
+            snakeSpeed = 80;
             generateAPower();
         } else {
-            snakeSpeed = 100;  // 80
+            snakeSpeed = 100;
         }
         gameloop = setInterval(paint, snakeSpeed);
         score=0;

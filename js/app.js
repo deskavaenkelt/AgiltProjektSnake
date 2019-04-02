@@ -254,13 +254,6 @@
         menu.style.display = 'none';
         tutorial.style.display = 'none';
         hideFullscreen.style.display = 'none';
-        /*
-        if(hideFullscreen.style.display === 'block'){
-            hideFullscreen.style.display = 'none';
-        }else{
-            hideFullscreen.style.display= 'block';
-        }
-        */
     }
 
 
